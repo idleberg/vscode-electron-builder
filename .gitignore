@@ -1,0 +1,23 @@
+# Development
+*.map
+lib/
+tsconfig.tsbuildinfo
+
+# Package managers
+bower_components/
+node_modules/
+npm-debug.log*
+vendor/
+yarn.lock
+
+# Project specific
+*.vsix
+electron-builder.js
+electron-builder.json
+electron-builder.json5
+electron-builder.toml
+electron-builder.yaml
+electron-builder.yml
+dist/
+snippets/
+todo.md

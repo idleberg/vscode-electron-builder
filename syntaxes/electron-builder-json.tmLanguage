@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>name</key>
+    <string>Electron Builder Configuration (JSON)</string>
+
+    <key>fileTypes</key>
+    <array>
+        <string>json</string>
+        <string>json5</string>
+    </array>
+
+        <key>patterns</key>
+    <array>
+        <dict>
+            <key>include</key>
+            <string>source.json</string>
+        </dict>
+        <dict>
+            <key>include</key>
+            <string>source.json5</string>
+        </dict>
+    </array>
+
+    <key>scopeName</key>
+    <string>source.json.electron-builder</string>
+
+    <key>uuid</key>
+    <string>c2086741-bad4-4f22-851c-5bd05f4c87b3</string>
+</dict>
+</plist>

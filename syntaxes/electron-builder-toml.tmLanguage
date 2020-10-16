@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>name</key>
+    <string>Electron Builder Configuration (TOML)</string>
+
+    <key>fileTypes</key>
+    <array>
+        <string>toml</string>
+    </array>
+
+        <key>patterns</key>
+    <array>
+        <dict>
+            <key>include</key>
+            <string>source.toml</string>
+        </dict>
+    </array>
+
+    <key>scopeName</key>
+    <string>source.toml.electron-builder</string>
+
+    <key>uuid</key>
+    <string>692071a5-0eb3-4ae7-a9a3-790f237ab36b</string>
+</dict>
+</plist>

@@ -1,0 +1,221 @@
+{
+   "name": "electron-builder",
+   "displayName": "Electron Builder",
+   "description": "Build system for Electron Builder",
+   "version": "0.0.0",
+   "publisher": "idleberg",
+   "license": "MIT OR GPL-2.0",
+   "author": {
+      "name": "Jan T. Sott",
+      "url": "http://github.com/idleberg"
+   },
+   "scripts": {
+      "compile": "npm run build",
+      "build": "rollup --config",
+      "dev": "npm run start",
+      "fix": "eslint --fix ./src",
+      "lint": "eslint ./src && vscode-linter",
+      "postinstall": "node ./node_modules/vscode/bin/install",
+      "start": "rollup --watch --config",
+      "test": "npm run lint",
+      "vscode:prepublish": "npm run build"
+   },
+   "keywords": [
+      "apk",
+      "appx",
+      "deb",
+      "dmg",
+      "electron-builder",
+      "electron",
+      "freebsd",
+      "mas",
+      "msi",
+      "nsis",
+      "p5p",
+      "pacman",
+      "pkg",
+      "rpm",
+      "squirrel"
+   ],
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/idleberg/vscode-electron-builder"
+   },
+   "homepage": "https://github.com/idleberg/vscode-electron-builder#readme",
+   "bugs": {
+      "url": "https://github.com/idleberg/vscode-electron-builder/issues"
+   },
+   "main": "./lib/extension",
+   "dependencies": {
+      "@types/vscode": "^1.50.0"
+   },
+   "devDependencies": {
+      "@rollup/plugin-commonjs": "^15.1.0",
+      "@rollup/plugin-json": "^4.1.0",
+      "@rollup/plugin-node-resolve": "^9.0.0",
+      "@rollup/plugin-typescript": "^6.0.0",
+      "@types/node": "^14.11.9",
+      "@typescript-eslint/eslint-plugin": "^4.4.1",
+      "@typescript-eslint/parser": "^4.4.1",
+      "eslint": "^7.11.0",
+      "husky": "^4.3.0",
+      "rollup": "^2.31.0",
+      "rollup-plugin-filesize": "^9.0.2",
+      "rollup-plugin-terser": "^7.0.2",
+      "typescript": "^4.0.3",
+      "vscode": "^1.1.37",
+      "vscode-linter": "^0.3.1"
+   },
+   "husky": {
+      "hooks": {
+         "pre-commit": "npm run test"
+      }
+   },
+   "extensionDependencies": [],
+   "icon": "images/logo.png",
+   "galleryBanner": {
+      "color": "#9e90aa",
+      "theme": "dark"
+   },
+   "engines": {
+      "vscode": "^1.0.0"
+   },
+   "categories": [
+      "Snippets",
+      "Other"
+   ],
+   "activationEvents": [
+      "onLanguage:electron-builder-js",
+      "onLanguage:electron-builder-json",
+      "onLanguage:electron-builder-toml",
+      "onLanguage:electron-builder-yaml"
+   ],
+   "contributes": {
+      "configuration": {
+         "type": "object",
+         "title": "Electron Builder",
+         "properties": {
+            "electron-builder.pathToElectronBuilder": {
+               "type": "string",
+               "default": "electron-builder",
+               "markdownDescription": "%pathToElectronBuilder%"
+            },
+            "electron-builder.electronBuilderArguments": {
+               "type": "array",
+               "items": {
+                  "type": "string"
+               },
+               "default": [],
+               "markdownDescription": "%electronBuilderArguments%"
+            }
+         }
+      },
+      "languages": [
+         {
+            "id": "electron-builder-js",
+            "aliases": [
+               "Electron Builder Configuration (JavaScript)"
+            ],
+            "extensions": [
+               "electron-builder.js"
+            ]
+         },
+         {
+            "id": "electron-builder-json",
+            "aliases": [
+               "Electron Builder Configuration (JSON)"
+            ],
+            "extensions": [
+               "electron-builder.json",
+               "electron-builder.json5"
+            ]
+         },
+         {
+            "id": "electron-builder-toml",
+            "aliases": [
+               "Electron Builder Configuration (TOML)"
+            ],
+            "extensions": [
+               "electron-builder.toml"
+            ]
+         },
+         {
+            "id": "electron-builder-yaml",
+            "aliases": [
+               "Electron Builder Configuration (YAML)"
+            ],
+            "extensions": [
+               "electron-builder.yaml",
+               "electron-builder.yml"
+            ]
+         }
+      ],
+      "grammars": [
+         {
+            "language": "electron-builder-js",
+            "scopeName": "source.js.electron-builder",
+            "path": "./syntaxes/electron-builder-js.tmLanguage"
+         },
+         {
+            "language": "electron-builder-json",
+            "scopeName": "source.json.electron-builder",
+            "path": "./syntaxes/electron-builder-json.tmLanguage"
+         },
+         {
+            "language": "electron-builder-toml",
+            "scopeName": "source.toml.electron-builder",
+            "path": "./syntaxes/electron-builder-toml.tmLanguage"
+         },
+         {
+            "language": "electron-builder-yaml",
+            "scopeName": "source.yaml.electron-builder",
+            "path": "./syntaxes/electron-builder-yaml.tmLanguage"
+         }
+      ],
+      "commands": [
+         {
+            "command": "extension.electron-builder.run",
+            "title": "Electron Builder",
+            "icon": {
+               "dark": "./images/icon--build-dark.svg",
+               "light": "./images/icon--build-light.svg"
+            }
+         }
+      ],
+      "menus": {
+         "editor/title": [
+            {
+               "when": "resourceLangId == electron-builder-js",
+               "command": "extension.electron-builder.run",
+               "group": "navigation@1"
+            },
+            {
+               "when": "resourceLangId == electron-builder-json",
+               "command": "extension.electron-builder.run",
+               "group": "navigation@1"
+            },
+            {
+               "when": "resourceLangId == electron-builder-toml",
+               "command": "extension.electron-builder.run",
+               "group": "navigation@1"
+            },
+            {
+               "when": "resourceLangId == electron-builder-yaml",
+               "command": "extension.electron-builder.run",
+               "group": "navigation@1"
+            }
+         ]
+      },
+      "snippets": [
+         {
+            "language": "electron-builder-json",
+            "path": "./snippets/json.json"
+         }
+      ]
+   },
+   "babel": {
+      "presets": [
+         "es2015"
+      ]
+   }
+}

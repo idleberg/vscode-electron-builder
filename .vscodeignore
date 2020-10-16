@@ -1,0 +1,37 @@
+# Development
+*.map
+.circleci/
+.editorconfig
+.gitignore
+.travis.yml
+gulpfile.js
+package-lock.json
+src/
+tsconfig.json
+tsconfig.tsbuildinfo
+tslint.json
+webpack.config.js
+
+# Package managers
+node_modules/
+npm-debug.log*
+package-lock.json
+vendor/
+yarn-error.log
+yarn.lock
+
+# Visual Studio Code
+**/**.vsix
+.vscode-test/**
+.vscode/**
+
+# Project specific
+dist/
+electron-builder.js
+electron-builder.json
+electron-builder.json5
+electron-builder.toml
+electron-builder.yaml
+electron-builder.yml
+snippets/
+todo.md

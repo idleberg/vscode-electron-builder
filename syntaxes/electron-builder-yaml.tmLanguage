@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>name</key>
+    <string>Electron Builder Configuration (YAML)</string>
+
+    <key>fileTypes</key>
+    <array>
+        <string>yaml</string>
+        <string>yml</string>
+    </array>
+
+        <key>patterns</key>
+    <array>
+        <dict>
+            <key>include</key>
+            <string>source.yaml</string>
+        </dict>
+    </array>
+
+    <key>scopeName</key>
+    <string>source.yaml.electron-builder</string>
+
+    <key>uuid</key>
+    <string>400d66ea-2e10-4191-9a7e-2b3e0bca8ede</string>
+</dict>
+</plist>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>name</key>
+    <string>Electron Builder Configuration (JavaScript)</string>
+
+    <key>fileTypes</key>
+    <array>
+        <string>js</string>
+    </array>
+
+        <key>patterns</key>
+    <array>
+        <dict>
+            <key>include</key>
+            <string>source.js</string>
+        </dict>
+    </array>
+
+    <key>scopeName</key>
+    <string>source.js.electron-builder</string>
+
+    <key>uuid</key>
+    <string>cfa9d2ec-b7b9-45cd-98ec-501f06e4627c</string>
+</dict>
+</plist>
