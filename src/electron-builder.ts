@@ -50,7 +50,7 @@ export default async function run(): Promise<void> {
     builderChannel.appendLine(line.toString());
   });
 
-  child.stderr.on('data', (line: Array<any>) => {
+  child.stderr.on('data', (line: Array<string>) => {
     stdErr += '\n' + line;
     builderChannel.appendLine(line.toString());
   });

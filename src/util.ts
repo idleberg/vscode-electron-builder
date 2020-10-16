@@ -33,7 +33,7 @@ function isSupportedFile(): boolean {
   return supportedFiles.includes(languageID);
 }
 
-function getPlatformFlag() {
+function getPlatformFlag(): string | void {
   const currentPlatform = platform();
 
   switch(currentPlatform) {
