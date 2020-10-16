@@ -20,7 +20,7 @@ function getConfig(): WorkspaceConfiguration {
   return workspace.getConfiguration('electron-builder');
 }
 
-function isSupportedFile(): boolean {
+function isSupportedGrammar(): boolean {
   const supportedFiles = [
     'electron-builder-js',
     'electron-builder-json',
@@ -68,5 +68,5 @@ export {
   getConfig,
   getPlatformFlag,
   getProjectPath,
-  isSupportedFile
+  isSupportedGrammar
 };

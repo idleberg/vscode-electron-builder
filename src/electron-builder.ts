@@ -6,7 +6,7 @@ import {
   getConfig,
   getPlatformFlag,
   getProjectPath,
-  isSupportedFile
+  isSupportedGrammar
 } from './util';
 
 const builderChannel = window.createOutputChannel('Electron Builder');
@@ -14,7 +14,7 @@ const builderChannel = window.createOutputChannel('Electron Builder');
 export default async function run(): Promise<void> {
   clearOutput(builderChannel);
 
-  if (!isSupportedFile()) {
+  if (!isSupportedGrammar()) {
     builderChannel.appendLine('This command is only available for Electron Builder files');
     return;
   }
@@ -37,7 +37,7 @@ export default async function run(): Promise<void> {
   if (!electronBuilderArguments.includes('--config') && !electronBuilderArguments.includes('-c')) {
     electronBuilderArguments.push(
       '--config',
-      document.fileName
+      fileName
     );
   }
 
