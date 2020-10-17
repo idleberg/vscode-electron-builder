@@ -48,6 +48,7 @@ You can run the *Electron Builder: Build* from the [command-palette](https://cod
 
 Configuration Precedence:
 
+- extension settings using `--config` option
 - `package.json` with `build` field
 - `electron-builder.yml`
 - `electron-builder.yaml`
