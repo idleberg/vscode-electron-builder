@@ -44,7 +44,7 @@ $ git clone https://github.com/idleberg/vscode-electron-builder electron-builder
 
 ## Usage
 
-You can run the *Electron Builder: Run* from the [command-palette](https://code.visualstudio.com/docs/editor/codebasics#_command-palette) or from the title menu when opening a configuration file. When no such file has been opened, your workspace will be scanned for eligible configurations.
+You can run the *Electron Builder: Build* from the [command-palette](https://code.visualstudio.com/docs/editor/codebasics#_command-palette) or from the title menu when opening a configuration file. When no such file has been opened, your workspace will be scanned for eligible configurations.
 
 Configuration Precedence:
 
