@@ -6,7 +6,11 @@ import { terser } from "rollup-plugin-terser";
 const plugins = [
   commonjs(),
   filesize(),
-  terser(),
+  (
+    process.env.NODE_ENV === 'development'
+      ? undefined
+      : terser()
+  ),
   typescript({
     allowSyntheticDefaultImports: true
   })
