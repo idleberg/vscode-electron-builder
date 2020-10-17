@@ -16,6 +16,8 @@ export default [
   {
     external: [
       'child_process',
+      'fs',
+      'path',
       'os',
       'vscode'
     ],

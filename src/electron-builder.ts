@@ -6,16 +6,20 @@ import {
   getConfig,
   getPlatformFlag,
   getProjectPath,
-  isSupportedGrammar
+  hasConfigArgument,
+  hasConfigFiles,
+  hasEligibleManifest,
+  isSupportedGrammar,
+  isValidConfigFile
 } from './util';
 
 const builderChannel = window.createOutputChannel('Electron Builder');
 
-export default async function run(): Promise<void> {
+export default async function build(): Promise<void> {
   clearOutput(builderChannel);
 
-  if (!isSupportedGrammar()) {
-    builderChannel.appendLine('This command is only available for Electron Builder files');
+  if (!(await hasEligibleManifest() || await hasConfigFiles()) && !isSupportedGrammar()) {
+    builderChannel.appendLine('No eligible Electron Builder configuration found in your workspace');
     return;
   }
 
@@ -25,7 +29,9 @@ export default async function run(): Promise<void> {
   try {
     await document.save();
   } catch (errorMessage) {
-    console.error(`Could not save document ${fileName}`, errorMessage)
+    window.showErrorMessage(`Could not save document ${fileName}, see console for details`);
+    console.error(errorMessage);
+    return;
   }
 
   const config: WorkspaceConfiguration = getConfig();
@@ -34,7 +40,7 @@ export default async function run(): Promise<void> {
     ? [ ...config.electronBuilderArguments ]
     : [ getPlatformFlag() ];
 
-  if (!electronBuilderArguments.includes('--config') && !electronBuilderArguments.includes('-c')) {
+  if (!hasConfigArgument(electronBuilderArguments) && (isValidConfigFile(fileName) || !(await hasEligibleManifest() || await hasConfigFiles()))) {
     electronBuilderArguments.push(
       '--config',
       fileName

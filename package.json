@@ -84,10 +84,12 @@
       "Other"
    ],
    "activationEvents": [
+      "onCommand:extension.electron-builder.build",
       "onLanguage:electron-builder-js",
       "onLanguage:electron-builder-json",
       "onLanguage:electron-builder-toml",
-      "onLanguage:electron-builder-yaml"
+      "onLanguage:electron-builder-yaml",
+      "workspaceContains:package.json"
    ],
    "contributes": {
       "configuration": {
@@ -173,8 +175,8 @@
       ],
       "commands": [
          {
-            "command": "extension.electron-builder.run",
-            "title": "Electron Builder",
+            "command": "extension.electron-builder.build",
+            "title": "Electron Builder: Build",
             "icon": {
                "dark": "./images/icon--build-dark.svg",
                "light": "./images/icon--build-light.svg"
@@ -185,22 +187,22 @@
          "editor/title": [
             {
                "when": "resourceLangId == electron-builder-js",
-               "command": "extension.electron-builder.run",
+               "command": "extension.electron-builder.build",
                "group": "navigation@1"
             },
             {
                "when": "resourceLangId == electron-builder-json",
-               "command": "extension.electron-builder.run",
+               "command": "extension.electron-builder.build",
                "group": "navigation@1"
             },
             {
                "when": "resourceLangId == electron-builder-toml",
-               "command": "extension.electron-builder.run",
+               "command": "extension.electron-builder.build",
                "group": "navigation@1"
             },
             {
                "when": "resourceLangId == electron-builder-yaml",
-               "command": "extension.electron-builder.run",
+               "command": "extension.electron-builder.build",
                "group": "navigation@1"
             }
          ]
@@ -210,11 +212,6 @@
             "language": "electron-builder-json",
             "path": "./snippets/json.json"
          }
-      ]
-   },
-   "babel": {
-      "presets": [
-         "es2015"
       ]
    }
 }
