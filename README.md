@@ -50,6 +50,14 @@ $ git clone https://github.com/idleberg/vscode-electron-builder electron-builder
 
 ## Usage
 
+### Prerequisites
+
+Before you can build, make sure `electron-builder` is exposed in your PATH [environment variable](http://superuser.com/a/284351/195953). . Alternatively, you can specify the path to `electron-builder` in your [user settings](https://code.visualstudio.com/docs/customization/userandworkspace).
+
+Electron Builder expects your project to include the [`electron`](https://www.npmjs.com/package/electron) module as a `devDependency`. Likewise, if you want to work with TOML configurations, you need to install the [`toml`](https://www.npmjs.com/package/toml) module as a `devDependency`.
+
+### Building
+
 You can run the *Electron Builder: Build* from the [command-palette](https://code.visualstudio.com/docs/editor/codebasics#_command-palette) or from the title menu when opening a configuration file. When no such file has been opened, your workspace will be scanned for eligible configurations.
 
 Configuration Precedence:
