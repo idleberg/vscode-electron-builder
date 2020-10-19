@@ -1,6 +1,7 @@
 # v0.3.0 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/0.3.0)
 
 - set default `pathToElectronBuilder` value to locally installed version
+- update dependencies
 
 # v0.2.1 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/0.2.1)
 
