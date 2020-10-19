@@ -70,6 +70,22 @@ Configuration Precedence:
 - `electron-builder.toml`
 - `electron-builder.js`
 
+### Options
+
+#### `pathToElectronBuilder`
+
+Type: `string`  
+Default: `${workspaceFolder}/node_modules/.bin/electron-builder`  
+
+Path to your `electron-builder`, defaults to your locally installed dependency
+
+#### `electronBuilderArguments``
+
+Type: `string[]`  
+Default: `[]`  
+
+Custom arguments for electron builder
+
 ## License
 
 This work is licensed under [The MIT License](https://opensource.org/licenses/MIT)
