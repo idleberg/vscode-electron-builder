@@ -20,8 +20,8 @@ async function asyncFilter(arr, callback) {
 }
 
 // eslint-disable-next-line
-function clearOutput(channel: any): void {
-  const config: WorkspaceConfiguration = getConfig();
+async function clearOutput(channel: any): Promise<void> {
+  const config: WorkspaceConfiguration = await getConfig();
 
   channel.clear();
   if (config.alwaysShowOutput === true) {
@@ -39,8 +39,17 @@ async function fileExists(filePath: string): Promise<boolean> {
   return true;
 }
 
-function getConfig(): WorkspaceConfiguration {
-  return workspace.getConfiguration('electron-builder');
+async function getConfig(): Promise<WorkspaceConfiguration> {
+  const config = workspace.getConfiguration('electron-builder');
+  const configString = JSON.stringify(config);
+
+  if (configString.includes('${workspaceFolder')) {
+    const projectPath = await getProjectPath();
+
+    return JSON.parse(configString.replace(/\${workspaceFolder}/g, projectPath));
+  }
+
+  return config;
 }
 
 function isSupportedGrammar(): boolean {
@@ -96,7 +105,7 @@ async function getProjectPath(): Promise<null | string> {
   const resource = editor.document.uri;
   const { uri } = workspace.getWorkspaceFolder(resource);
 
-  return uri.fsPath || null;
+  return uri.fsPath || '';
 }
 
 function hasConfigArgument(electronBuilderArguments: string[]): boolean {

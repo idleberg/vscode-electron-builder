@@ -1,5 +1,5 @@
 import { window, WorkspaceConfiguration } from 'vscode';
-import { spawn } from 'child_process';
+import { spawn, spawnSync } from 'child_process';
 
 import {
   clearOutput,
@@ -16,7 +16,7 @@ import {
 const builderChannel = window.createOutputChannel('Electron Builder');
 
 export default async function build(): Promise<void> {
-  clearOutput(builderChannel);
+  await clearOutput(builderChannel);
 
   if (!(await hasEligibleManifest() || await hasConfigFiles()) && !isSupportedGrammar()) {
     builderChannel.appendLine('No eligible Electron Builder configuration found in your workspace');
@@ -34,7 +34,7 @@ export default async function build(): Promise<void> {
     return;
   }
 
-  const config: WorkspaceConfiguration = getConfig();
+  const config: WorkspaceConfiguration = await getConfig();
 
   const electronBuilderArguments = config.electronBuilderArguments?.length
     ? [ ...config.electronBuilderArguments ]
