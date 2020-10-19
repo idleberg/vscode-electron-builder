@@ -79,7 +79,7 @@ Default: `${workspaceFolder}/node_modules/.bin/electron-builder`
 
 Path to your `electron-builder`, defaults to your locally installed dependency
 
-#### `electronBuilderArguments``
+#### `electronBuilderArguments`
 
 Type: `string[]`  
 Default: `[]`  
