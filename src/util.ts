@@ -43,7 +43,7 @@ async function getConfig(): Promise<WorkspaceConfiguration> {
   const config = workspace.getConfiguration('electron-builder');
   const configString = JSON.stringify(config);
 
-  if (configString.includes('${workspaceFolder')) {
+  if (configString.includes('${workspaceFolder}')) {
     const projectPath = await getProjectPath();
 
     return JSON.parse(configString.replace(/\${workspaceFolder}/g, projectPath));
