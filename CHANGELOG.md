@@ -1,3 +1,7 @@
+# v0.3.1 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/0.3.1)
+
+- fix typo in variable substitution
+
 # v0.3.0 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/0.3.0)
 
 - set default `pathToElectronBuilder` value to locally installed version
