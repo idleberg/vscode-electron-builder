@@ -1,5 +1,5 @@
 import { window, WorkspaceConfiguration } from 'vscode';
-import { spawn, spawnSync } from 'child_process';
+import { spawn } from 'child_process';
 
 import {
   clearOutput,
