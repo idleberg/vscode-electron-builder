@@ -1,10 +1,10 @@
 import {
   window,
   workspace,
-  WorkspaceConfiguration
 } from 'vscode';
 
 import { constants, promises as fs } from 'fs';
+import { getConfig } from 'vscode-get-config';
 import { platform } from 'os';
 import { resolve } from 'path';
 
@@ -21,10 +21,10 @@ async function asyncFilter(arr, callback) {
 
 // eslint-disable-next-line
 async function clearOutput(channel: any): Promise<void> {
-  const config: WorkspaceConfiguration = await getConfig();
+  const { alwaysShowOutput } = await getConfig('electron-builder');
 
   channel.clear();
-  if (config.alwaysShowOutput === true) {
+  if (alwaysShowOutput === true) {
     channel.show(true);
   }
 }
@@ -37,19 +37,6 @@ async function fileExists(filePath: string): Promise<boolean> {
   }
 
   return true;
-}
-
-async function getConfig(): Promise<WorkspaceConfiguration> {
-  const config = workspace.getConfiguration('electron-builder');
-  const configString = JSON.stringify(config);
-
-  if (configString.includes('${workspaceFolder}')) {
-    const projectPath = await getProjectPath();
-
-    return JSON.parse(configString.replace(/\${workspaceFolder}/g, projectPath));
-  }
-
-  return config;
 }
 
 function isSupportedGrammar(): boolean {
@@ -120,7 +107,7 @@ async function hasEligibleManifest(): Promise<boolean> {
 }
 
 async function hasConfigFiles(): Promise<boolean> {
-  const configFiles = getConfigFiles();
+  const configFiles = await getConfigFiles();
   const projectPath = await getProjectPath();
 
   return Boolean(
@@ -137,7 +124,6 @@ function isValidConfigFile(fileName: string): boolean {
 export {
   clearOutput,
   fileExists,
-  getConfig,
   getConfigFiles,
   getPlatformFlag,
   getProjectPath,

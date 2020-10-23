@@ -1,9 +1,9 @@
+import { getConfig } from 'vscode-get-config';
 import { window, WorkspaceConfiguration } from 'vscode';
 import { spawn } from 'child_process';
 
 import {
   clearOutput,
-  getConfig,
   getPlatformFlag,
   getProjectPath,
   hasConfigArgument,
@@ -34,7 +34,7 @@ export default async function build(): Promise<void> {
     return;
   }
 
-  const config: WorkspaceConfiguration = await getConfig();
+  const config: WorkspaceConfiguration = await getConfig('electron-builder');
 
   const electronBuilderArguments = config.electronBuilderArguments?.length
     ? [ ...config.electronBuilderArguments ]
@@ -49,16 +49,25 @@ export default async function build(): Promise<void> {
 
   // Let's build
   const child = spawn(config.pathToElectronBuilder, electronBuilderArguments, { cwd: await getProjectPath()});
+  const stdErr = [];
 
-  let stdErr = '';
-
-  child.stdout.on('data', (line: Array<string> ) => {
+  child.stdout.on('data', (line: string ) => {
     builderChannel.appendLine(line.toString());
   });
 
-  child.stderr.on('data', (line: Array<string>) => {
-    stdErr += '\n' + line;
+  child.stderr.on('data', (line: string) => {
+    stdErr.push(line);
     builderChannel.appendLine(line.toString());
+  });
+
+  child.on('error', (errorMessage: string) => {
+    if (errorMessage && errorMessage.toString().includes('ENOENT')) {
+      window.showErrorMessage('Could not find electron-builder at specified path');
+    } else {
+      window.showErrorMessage('Failed to run electron-builder, see console for details');
+    }
+
+    console.error(errorMessage);
   });
 
   child.on('exit', (code) => {
@@ -66,7 +75,7 @@ export default async function build(): Promise<void> {
       builderChannel.show(true);
 
       if (config.showNotifications) window.showErrorMessage('Building failed, see output for details');
-      if (stdErr.length > 0) console.error(stdErr);
+      if (stdErr.length > 0) console.error(stdErr.join('\n'));
     }
   });
 }

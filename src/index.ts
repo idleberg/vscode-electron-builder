@@ -1,10 +1,10 @@
 import * as vscode from 'vscode';
-
 import build from './electron-builder';
-function activate(context: vscode.ExtensionContext): void {
+
+async function activate(context: vscode.ExtensionContext): Promise<void> {
   context.subscriptions.push(
-    vscode.commands.registerTextEditorCommand('extension.electron-builder.build', () => {
-      return build();
+    vscode.commands.registerTextEditorCommand('extension.electron-builder.build', async () => {
+      return await build();
     })
   );
 }
