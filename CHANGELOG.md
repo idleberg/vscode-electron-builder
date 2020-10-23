@@ -1,3 +1,9 @@
+# v0.4.0 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/0.4.0)
+
+- add support for variable substition when reading config
+- improve error handling
+- update dependencies
+
 # v0.3.1 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/0.3.1)
 
 - fix typo in variable substitution
