@@ -48,12 +48,13 @@
 	"main": "./lib/extension",
 	"dependencies": {
 		"@types/vscode": "^1.50.0",
-		"vscode-get-config": "^0.2.0"
+		"vscode-get-config": "^0.3.0",
+		"which": "^2.0.2"
 	},
 	"devDependencies": {
-		"@rollup/plugin-commonjs": "^15.1.0",
+		"@rollup/plugin-commonjs": "^16.0.0",
 		"@rollup/plugin-json": "^4.1.0",
-		"@rollup/plugin-node-resolve": "^9.0.0",
+		"@rollup/plugin-node-resolve": "^10.0.0",
 		"@rollup/plugin-typescript": "^6.0.0",
 		"@types/node": "^14.14.2",
 		"@typescript-eslint/eslint-plugin": "^4.5.0",
