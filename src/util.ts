@@ -7,6 +7,7 @@ import { constants, promises as fs } from 'fs';
 import { getConfig } from 'vscode-get-config';
 import { platform } from 'os';
 import { resolve } from 'path';
+import which from 'which';
 
 async function asyncFilter(arr, callback) {
   const fail = Symbol();
@@ -43,6 +44,23 @@ function isSupportedGrammar(): boolean {
   const languageID = window.activeTextEditor['_documentData']['_languageId'];
 
   return getSupportedGrammars().includes(languageID);
+}
+
+async function getElectronBuilderPath(): Promise<string> {
+  // If stored, return pathToElectronBuilder
+  const { pathToElectronBuilder } = await getConfig('electron-builder');
+
+  if (pathToElectronBuilder?.length && !pathToElectronBuilder.endsWith('/node_modules/.bin/electron-builder')) {
+    return pathToElectronBuilder;
+  }
+
+  try {
+    // Global installation?!
+    return String(await which('electron-builder'));
+  } catch (error) {
+    console.error(error);
+    window.showErrorMessage('No Electron Builder binary detected ');
+  }
 }
 
 function getPlatformFlag(): string | void {
@@ -125,6 +143,7 @@ export {
   clearOutput,
   fileExists,
   getConfigFiles,
+  getElectronBuilderPath,
   getPlatformFlag,
   getProjectPath,
   hasConfigArgument,

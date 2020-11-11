@@ -1,3 +1,8 @@
+# v0.5.0 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/0.5.0)
+
+- add fallback for globally installed `electron-builder`
+- update dependencies
+
 # v0.4.0 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/0.4.0)
 
 - add support for variable substition when reading config

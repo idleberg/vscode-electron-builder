@@ -4,6 +4,7 @@ import { spawn } from 'child_process';
 
 import {
   clearOutput,
+  getElectronBuilderPath,
   getPlatformFlag,
   getProjectPath,
   hasConfigArgument,
@@ -48,7 +49,7 @@ export default async function build(): Promise<void> {
   }
 
   // Let's build
-  const child = spawn(config.pathToElectronBuilder, electronBuilderArguments, { cwd: await getProjectPath()});
+  const child = spawn(await getElectronBuilderPath(), electronBuilderArguments, { cwd: await getProjectPath()});
   const stdErr = [];
 
   child.stdout.on('data', (line: string ) => {
