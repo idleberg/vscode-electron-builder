@@ -86,6 +86,10 @@ Default: `[]`
 
 Custom arguments for electron builder
 
+## Related
+
+- [vscode-nsis](https://marketplace.visualstudio.com/items?itemName=idleberg.nsis)
+
 ## License
 
 This work is licensed under [The MIT License](https://opensource.org/licenses/MIT)
