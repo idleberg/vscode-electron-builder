@@ -52,7 +52,7 @@ $ git clone https://github.com/idleberg/vscode-electron-builder electron-builder
 
 ### Prerequisites
 
-By defaul, `electron-builder` is expected to be installed as a local `dependency`. Alternatively, you can specify the path to `electron-builder` in your [user settings](https://code.visualstudio.com/docs/customization/userandworkspace), e.g. when it's installed globally.
+By default, `electron-builder` is expected to be installed as a local `dependency`. Alternatively, you can specify the path to `electron-builder` in your [user settings](https://code.visualstudio.com/docs/customization/userandworkspace), e.g. when it's installed globally.
 
 Electron Builder expects your project to include the [`electron`](https://www.npmjs.com/package/electron) module as a `devDependency`. Likewise, if you want to work with TOML configurations, you need to install the [`toml`](https://www.npmjs.com/package/toml) module as a `devDependency`.
 
