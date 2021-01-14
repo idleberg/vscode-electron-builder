@@ -1,3 +1,11 @@
+# v0.6.0 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/0.6.0)
+
+- add JavaScript snippets
+- add JSON snippets
+- add YAML snippets
+- modify linting scripts
+- update dependencies
+
 # v0.5.0 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/0.5.0)
 
 - add fallback for globally installed `electron-builder`
