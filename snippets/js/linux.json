@@ -1,0 +1,74 @@
+{
+  "linux": {
+    "body": "linux: {$1}$0",
+    "prefix": "linux"
+  },
+  "linux.target": {
+    "body": "target: '${1:target}'$0",
+    "prefix": "linux_target"
+  },
+  "linux.maintainer": {
+    "body": "maintainer: '${1:maintainer}'$0",
+    "prefix": "linux_maintainer"
+  },
+  "linux.vendor": {
+    "body": "vendor: '${1:vendor}'$0",
+    "prefix": "linux_vendor"
+  },
+  "linux.executableName": {
+    "body": "executableName: '${1:executableName}'$0",
+    "prefix": "linux_executableName"
+  },
+  "linux.icon": {
+    "body": "icon: '${1:icon}.icns'$0",
+    "prefix": "linux_icon"
+  },
+  "linux.synopsis": {
+    "body": "synopsis: '${1:synopsis}'$0",
+    "prefix": "linux_synopsis"
+  },
+  "linux.description": {
+    "body": "description: '${1:description}'$0",
+    "prefix": "linux_description"
+  },
+  "linux.category": {
+    "body": "category: '${1:category}'$0",
+    "prefix": "linux_category"
+  },
+  "linux.mimeTypes": {
+    "body": "mimeTypes: [$1]$0",
+    "prefix": "linux_mimeTypes"
+  },
+  "linux.desktop": {
+    "body": "desktop: $1$0",
+    "prefix": "linux_desktop"
+  },
+  "linux.depends": {
+    "body": "depends: [$1]$0",
+    "prefix": "linux_depends"
+  },
+  "linux.packageCategory": {
+    "body": "packageCategory: '${1:packageCategory}'$0",
+    "prefix": "linux_packageCategory"
+  },
+  "linux.priority": {
+    "body": "priority: '${1:priority}'$0",
+    "prefix": "linux_priority"
+  },
+  "linux.afterInstall": {
+    "body": "afterInstall: '${1:afterInstall}'$0",
+    "prefix": "linux_afterInstall"
+  },
+  "linux.afterRemove": {
+    "body": "afterRemove: '${1:afterRemove}'$0",
+    "prefix": "linux_afterRemove"
+  },
+  "linux.fpm": {
+    "body": "fpm: [$1]$0",
+    "prefix": "linux_fpm"
+  },
+  "linux.artifactName": {
+    "body": "artifactName: [$1]$0",
+    "prefix": "linux_artifactName"
+  }
+}

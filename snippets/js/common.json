@@ -1,0 +1,230 @@
+{
+  "appId": {
+    "body": "appId: '${1:com.electron.name}'$0",
+    "prefix": "appId"
+  },
+  "productName": {
+    "body": "productName: '${1:name}'$0",
+    "prefix": "productName"
+  },
+  "copyright": {
+    "body": "copyright: '${1:Copyright © ${2:year} ${3:author}}'$0",
+    "prefix": "copyright"
+  },
+  "directories": {
+    "body": "directories: {$1}$0",
+    "prefix": "directories"
+  },
+  "directories.buildResources": {
+    "body": "buildResources: '${1:build}'$0",
+    "prefix": "directories_buildResources"
+  },
+  "directories.output": {
+    "body": "output: '${1:output}'$0",
+    "prefix": "directories_output"
+  },
+  "directories.app": {
+    "body": "app: '{$1}'$0",
+    "prefix": "directories_app"
+  },
+  "mac": {
+    "body": "mac: {$1}$0",
+    "prefix": "mac"
+  },
+  "mac.category": {
+    "body": "category: '${1:{$2:public}.${3:app-category}.${4:developer-tools}}'$0",
+    "prefix": "mac_category"
+  },
+  "mac.target": {
+    "body": "target: '${1:target}'$0",
+    "prefix": "mac_target"
+  },
+  "mac.identity": {
+    "body": "identity: '${1:certificate}'$0",
+    "prefix": "mac_identity"
+  },
+  "mac.icon": {
+    "body": "icon: '${1:icon}.icns'$0",
+    "prefix": "mac_icon"
+  },
+  "mac.entitlements": {
+    "body": "entitlements: '${1:build/entitlements.mac}.plist'$0",
+    "prefix": "mac_entitlements"
+  },
+  "mac.entitlementsInherit": {
+    "body": "entitlementsInherit: '${1:build/entitlements.mac.inherit}.plist'$0",
+    "prefix": "mac_entitlementsInherit"
+  },
+  "mac.provisioningProfile": {
+    "body": "provisioningProfile: '${1:profile}'$0",
+    "prefix": "mac_provisioningProfile"
+  },
+  "mac.bundleVersion": {
+    "body": "bundleVersion: '${1:version}'$0",
+    "prefix": "mac_bundleVersion"
+  },
+  "mac.bundleShortVersion": {
+    "body": "bundleShortVersion: '${1:version}'$0",
+    "prefix": "mac_bundleShortVersion"
+  },
+  "mac.darkModeSupport": {
+    "body": "darkModeSupport: ${1:true|false}$0",
+    "prefix": "mac_darkModeSupport"
+  },
+  "mac.helperBundleId": {
+    "body": "helperBundleId: '${1:\\$\\{appBundleIdentifier\\}}.helper'$0",
+    "prefix": "mac_helperBundleId"
+  },
+  "mac.type": {
+    "body": "type: '${1:distribution|development}'$0",
+    "prefix": "mac_type"
+  },
+  "mac.extendInfo": {
+    "body": "extendInfo: $1$0",
+    "prefix": "mac_extendInfo"
+  },
+  "mac.binaries": {
+    "body": "binaries: [$1]$0",
+    "prefix": "mac_binaries"
+  },
+  "mac.minimumSystemVersion": {
+    "body": "minimumSystemVersion: '${1:version}$0",
+    "prefix": "mac_minimumSystemVersion"
+  },
+  "mac.requirements": {
+    "body": "requirements: '${1:requirements}$0",
+    "prefix": "mac_requirements"
+  },
+  "mac.electronLanguages": {
+    "body": "electronLanguages: [$1]$0",
+    "prefix": "mac_electronLanguages"
+  },
+  "mac.extraDistFiles": {
+    "body": "extraDistFiles: [$1]$0",
+    "prefix": "mac_extraDistFiles"
+  },
+  "mac.hardenedRuntime": {
+    "body": "hardenedRuntime: ${1:true|false}$0",
+    "prefix": "mac_hardenedRuntime"
+  },
+  "mac.gatekeeperAssess": {
+    "body": "gatekeeperAssess: ${1:true|false}$0",
+    "prefix": "mac_gatekeeperAssess"
+  },
+  "buildResources": {
+    "body": "buildResources: '${1:build}'$0",
+    "prefix": "buildResources"
+  },
+  "output": {
+    "body": "output: '${1:dist}'$0",
+    "prefix": "output"
+  },
+  "buildVersion": {
+    "body": "buildVersion: '${1:version}'$0",
+    "prefix": "buildVersion"
+  },
+  "electronCompile": {
+    "body": "electronCompile: ${1:true|false}$0",
+    "prefix": "electronCompile"
+  },
+  "electronDist": {
+    "body": "electronDist: '${1:path}'$0",
+    "prefix": "electronDist"
+  },
+  "electronDownload": {
+    "body": "electronDownload: {$1}$0",
+    "prefix": "electronDownload"
+  },
+  "electronDownload.version": {
+    "body": "version: '${1:version}'$0",
+    "prefix": "electronDownload_version"
+  },
+  "electronDownload.cache": {
+    "body": "cache: '${1:cache_location}'$0",
+    "prefix": "electronDownload_cache"
+  },
+  "electronDownload.mirror": {
+    "body": "mirror: '${1:mirror}'$0",
+    "prefix": "electronDownload_mirror"
+  },
+  "electronDownload.strictSSL": {
+    "body": "strictSSL: ${1:true|false}$0",
+    "prefix": "electronDownload_strictSSL"
+  },
+  "electronDownload.isVerifyChecksum": {
+    "body": "isVerifyChecksum: ${1:true|false}$0",
+    "prefix": "electronDownload_isVerifyChecksum"
+  },
+  "electronDownload.platform": {
+    "body": "platform: '${1:platform}'$0",
+    "prefix": "electronDownload_platform"
+  },
+  "electronDownload.arch": {
+    "body": "arch: '${1:arch}'$0",
+    "prefix": "electronDownload_arch"
+  },
+  "electronVersion": {
+    "body": "electronVersion: '${1:version}'$0",
+    "prefix": "electronVersion"
+  },
+  "extends": {
+    "body": "extends: '${1:react-cra}'$0",
+    "prefix": "extends"
+  },
+  "extraMetadata": {
+    "body": "extraMetadata: $1$0",
+    "prefix": "extraMetadata"
+  },
+  "readonly": {
+    "body": "readonly: ${1:true|false}$0",
+    "prefix": "readonly"
+  },
+  "nodeVersion": {
+    "body": "nodeVersion: '${1:version}'$0",
+    "prefix": "nodeVersion"
+  },
+  "launchUiVersion": {
+    "body": "launchUiVersion: ${1:true|false|version}$0",
+    "prefix": "launchUiVersion"
+  },
+  "framework": {
+    "body": "framework: '${1:electron|proton-native|libui}'$0",
+    "prefix": "framework"
+  },
+  "afterPack": {
+    "body": "afterPack: '${1:function|module}'$0",
+    "prefix": "afterPack"
+  },
+  "artifactBuildStarted": {
+    "body": "artifactBuildStarted: '${1:function|module}'$0",
+    "prefix": "artifactBuildStarted"
+  },
+  "artifactBuildCompleted": {
+    "body": "artifactBuildCompleted: '${1:function|module}'$0",
+    "prefix": "artifactBuildCompleted"
+  },
+  "afterAllArtifactBuild": {
+    "body": "afterAllArtifactBuild: '${1:function|module}'$0",
+    "prefix": "afterAllArtifactBuild"
+  },
+  "onNodeModuleFile": {
+    "body": "onNodeModuleFile: '${1:function|module}'$0",
+    "prefix": "onNodeModuleFile"
+  },
+  "beforeBuild": {
+    "body": "beforeBuild: '${1:function|module}'$0",
+    "prefix": "beforeBuild"
+  },
+  "remoteBuild": {
+    "body": "remoteBuild: ${1:true|false}$0",
+    "prefix": "remoteBuild"
+  },
+  "includePdb": {
+    "body": "includePdb: ${1:true|false}$0",
+    "prefix": "includePdb"
+  },
+  "removePackageScripts": {
+    "body": "removePackageScripts: ${1:true|false}$0",
+    "prefix": "removePackageScripts"
+  }
+}

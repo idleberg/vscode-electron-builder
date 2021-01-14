@@ -13,7 +13,7 @@
 		"compile": "npm run build",
 		"build": "NODE_ENV=production rollup --config",
 		"dev": "npm run start",
-		"lint:json": "jsonlint ./grammars/*.json ./keymaps/*.json menus/*.json snippets/*.json --quiet",
+		"lint:json": "jsonlint --quiet ./*.json ./snippets/**/*.json",
 		"lint:md": "remark . --quiet --frail --ignore-path .gitignore",
 		"lint:ts": "eslint ./src --ignore-path .gitignore",
 		"lint": "npm-run-all --parallel lint:*",
@@ -214,6 +214,22 @@
 			]
 		},
 		"snippets": [
+      {
+				"language": "electron-builder-js",
+				"path": "./snippets/js/common.json"
+			},
+			{
+				"language": "electron-builder-js",
+				"path": "./snippets/js/mac.json"
+			},
+			{
+				"language": "electron-builder-js",
+				"path": "./snippets/js/linux.json"
+			},
+			{
+				"language": "electron-builder-js",
+				"path": "./snippets/js/win.json"
+			},
 			{
 				"language": "electron-builder-json",
 				"path": "./snippets/json/common.json"
@@ -224,7 +240,27 @@
 			},
 			{
 				"language": "electron-builder-json",
+				"path": "./snippets/json/linux.json"
+			},
+			{
+				"language": "electron-builder-json",
 				"path": "./snippets/json/win.json"
+      },
+      {
+				"language": "electron-builder-yaml",
+				"path": "./snippets/yaml/common.json"
+			},
+			{
+				"language": "electron-builder-yaml",
+				"path": "./snippets/yaml/mac.json"
+			},
+			{
+				"language": "electron-builder-yaml",
+				"path": "./snippets/yaml/linux.json"
+			},
+			{
+				"language": "electron-builder-yaml",
+				"path": "./snippets/yaml/win.json"
 			}
 		]
 	},

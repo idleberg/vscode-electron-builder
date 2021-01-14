@@ -1,0 +1,86 @@
+{
+  "mac": {
+    "body": "\"mac\": {$1}$0",
+    "prefix": "mac"
+  },
+  "mac.category": {
+    "body": "\"category\": \"${1:{$2:public}.${3:app-category}.${4:developer-tools}}\"$0",
+    "prefix": "mac_category"
+  },
+  "mac.target": {
+    "body": "\"target\": \"${1:target}\"$0",
+    "prefix": "mac_target"
+  },
+  "mac.identity": {
+    "body": "\"identity\": \"${1:certificate}\"$0",
+    "prefix": "mac_identity"
+  },
+  "mac.icon": {
+    "body": "\"icon\": \"${1:icon}.icns\"$0",
+    "prefix": "mac_icon"
+  },
+  "mac.entitlements": {
+    "body": "\"entitlements\": \"${1:build/entitlements.mac}.plist\"$0",
+    "prefix": "mac_entitlements"
+  },
+  "mac.entitlementsInherit": {
+    "body": "\"entitlementsInherit\": \"${1:build/entitlements.mac.inherit}.plist\"$0",
+    "prefix": "mac_entitlementsInherit"
+  },
+  "mac.provisioningProfile": {
+    "body": "\"provisioningProfile\": \"${1:profile}\"$0",
+    "prefix": "mac_provisioningProfile"
+  },
+  "mac.bundleVersion": {
+    "body": "\"bundleVersion\": \"${1:version}\"$0",
+    "prefix": "mac_bundleVersion"
+  },
+  "mac.bundleShortVersion": {
+    "body": "\"bundleShortVersion\": \"${1:version}\"$0",
+    "prefix": "mac_bundleShortVersion"
+  },
+  "mac.darkModeSupport": {
+    "body": "\"darkModeSupport\": ${1:true|false}$0",
+    "prefix": "mac_darkModeSupport"
+  },
+  "mac.helperBundleId": {
+    "body": "\"helperBundleId\": \"${1:\\$\\{appBundleIdentifier\\}}.helper\"$0",
+    "prefix": "mac_helperBundleId"
+  },
+  "mac.type": {
+    "body": "\"type\": \"${1:distribution|development}\"$0",
+    "prefix": "mac_type"
+  },
+  "mac.extendInfo": {
+    "body": "\"extendInfo\": $1$0",
+    "prefix": "mac_extendInfo"
+  },
+  "mac.binaries": {
+    "body": "\"binaries\": [$1]$0",
+    "prefix": "mac_binaries"
+  },
+  "mac.minimumSystemVersion": {
+    "body": "\"minimumSystemVersion\": \"${1:version}$0",
+    "prefix": "mac_minimumSystemVersion"
+  },
+  "mac.requirements": {
+    "body": "\"requirements\": \"${1:requirements}$0",
+    "prefix": "mac_requirements"
+  },
+  "mac.electronLanguages": {
+    "body": "\"electronLanguages\": [$1]$0",
+    "prefix": "mac_electronLanguages"
+  },
+  "mac.extraDistFiles": {
+    "body": "\"extraDistFiles\": [$1]$0",
+    "prefix": "mac_extraDistFiles"
+  },
+  "mac.hardenedRuntime": {
+    "body": "\"hardenedRuntime\": ${1:true|false}$0",
+    "prefix": "mac_hardenedRuntime"
+  },
+  "mac.gatekeeperAssess": {
+    "body": "\"gatekeeperAssess\": ${1:true|false}$0",
+    "prefix": "mac_gatekeeperAssess"
+  }
+}

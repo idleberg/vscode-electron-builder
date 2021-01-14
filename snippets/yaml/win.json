@@ -1,0 +1,70 @@
+{
+  "win": {
+    "body": "win: $1$0",
+    "prefix": "win"
+  },
+  "win.target": {
+    "body": "target: ${1:target}$0",
+    "prefix": "win_target"
+  },
+  "win.icon": {
+    "body": "icon: ${1:build/icon.ico}$0",
+    "prefix": "win_icon"
+  },
+  "win.signingHashAlgorithms": {
+    "body": "signingHashAlgorithms:\n- $1$0",
+    "prefix": "win_signingHashAlgorithms"
+  },
+  "win.sign": {
+    "body": "sign: ${1:function}$0",
+    "prefix": "win_sign"
+  },
+  "win.certificateFile": {
+    "body": "certificateFile: ${1:${2:file}.pfx}$0",
+    "prefix": "win_certificateFile"
+  },
+  "win.certificatePassword": {
+    "body": "certificatePassword: ${1:password}$0",
+    "prefix": "win_certificatePassword"
+  },
+  "win.certificateSubjectName": {
+    "body": "certificateSubjectName: ${1:subject}$0",
+    "prefix": "win_certificateSubjectName"
+  },
+  "win.certificateSha1": {
+    "body": "certificateSha1: $1$0",
+    "prefix": "win_certificateSha1"
+  },
+  "win.additionalCertificateFile": {
+    "body": "additionalCertificateFile: ${1:${2:file}.pfx}$0",
+    "prefix": "win_additionalCertificateFile"
+  },
+  "win.rfc3161TimeStampServer": {
+    "body": "rfc3161TimeStampServer: ${1:url}$0",
+    "prefix": "win_rfc3161TimeStampServer"
+  },
+  "win.timeStampServer": {
+    "body": "timeStampServer: ${1:url}$0",
+    "prefix": "win_timeStampServer"
+  },
+  "win.publisherName": {
+    "body": "publisherName:\n- ${1:name}$0",
+    "prefix": "win_publisherName"
+  },
+  "win.verifyUpdateCodeSignature": {
+    "body": "verifyUpdateCodeSignature: ${1:true|false}$0",
+    "prefix": "win_verifyUpdateCodeSignature"
+  },
+  "win.requestedExecutionLevel": {
+    "body": "requestedExecutionLevel: ${1:asInvoker|highestAvailable|requireAdministrator}$0",
+    "prefix": "win_requestedExecutionLevel"
+  },
+  "win.signAndEditExecutable": {
+    "body": "signAndEditExecutable: ${1:true|false}$0",
+    "prefix": "win_signAndEditExecutable"
+  },
+  "win.signDlls": {
+    "body": "signDlls: ${1:true|false}$0",
+    "prefix": "win_signDlls"
+  }
+}
