@@ -19,5 +19,4 @@ electron-builder.toml
 electron-builder.yaml
 electron-builder.yml
 dist/
-snippets/
 todo.md
