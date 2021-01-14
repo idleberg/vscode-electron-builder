@@ -1,3 +1,7 @@
+# v0.6.1 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/0.6.1)
+
+- add missing dependency
+
 # v0.6.0 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/0.6.0)
 
 - add JavaScript snippets
