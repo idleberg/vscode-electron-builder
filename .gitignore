@@ -1,5 +1,6 @@
 # Development
 *.map
+.eslintcache
 lib/
 tsconfig.tsbuildinfo
 
