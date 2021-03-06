@@ -3,6 +3,7 @@
 - migrate to `esbuild` as bundler
 - remove snippets from `.vscodeignore`
 - update `hasEligibleManifest()` function
+- several fixes
 
 # v0.6.1 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/0.6.1)
 
