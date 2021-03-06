@@ -50,7 +50,7 @@ async function getElectronBuilderPath(): Promise<string> {
   // If stored, return pathToElectronBuilder
   const { pathToElectronBuilder } = await getConfig('electron-builder');
 
-  if (pathToElectronBuilder?.length && !pathToElectronBuilder.endsWith('/node_modules/.bin/electron-builder')) {
+  if (pathToElectronBuilder?.length && pathToElectronBuilder.endsWith('/node_modules/.bin/electron-builder')) {
     return pathToElectronBuilder;
   }
 
@@ -118,8 +118,22 @@ function hasConfigArgument(electronBuilderArguments: string[]): boolean {
 }
 
 async function hasEligibleManifest(): Promise<boolean> {
-  const manifestFile = resolve(await getProjectPath(), 'package.json');
-  const manifest: unknown = JSON.parse(await fs.readFile(manifestFile, 'utf-8'));
+  const manifestPath = resolve(await getProjectPath(), 'package.json');
+
+  if (!await fileExists(manifestPath)) {
+    return false;
+  }
+
+  let manifestFile;
+
+  try {
+    manifestFile = await fs.readFile(manifestPath, 'utf-8');
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+
+  const manifest: unknown = JSON.parse(manifestFile);
 
   return Boolean(manifest['build'] && manifest['build']['appId']);
 }
