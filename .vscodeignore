@@ -35,5 +35,4 @@ electron-builder.json5
 electron-builder.toml
 electron-builder.yaml
 electron-builder.yml
-snippets/
 todo.md
