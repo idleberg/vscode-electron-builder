@@ -11,14 +11,14 @@
 	},
 	"scripts": {
 		"compile": "npm run build",
-		"build": "NODE_ENV=production rollup --config",
+		"build": "node ./tools/build.cjs",
 		"dev": "npm run start",
 		"lint:json": "jsonlint --quiet ./*.json ./snippets/**/*.json",
 		"lint:md": "remark . --quiet --frail --ignore-path .gitignore",
 		"lint:ts": "eslint ./src --ignore-path .gitignore",
 		"lint": "npm-run-all --parallel lint:*",
 		"postinstall": "node ./node_modules/vscode/bin/install",
-		"start": "NODE_ENV=development rollup --watch --config",
+		"start": "NODE_ENV=development node ./tools/build.cjs",
 		"test": "npm run lint",
 		"vscode:prepublish": "npm run build"
 	},
@@ -54,13 +54,10 @@
 		"which": "^2.0.2"
 	},
 	"devDependencies": {
-		"@rollup/plugin-commonjs": "^17.0.0",
-		"@rollup/plugin-json": "^4.1.0",
-		"@rollup/plugin-node-resolve": "^11.0.1",
-		"@rollup/plugin-typescript": "^8.1.0",
 		"@types/node": "^14.14.21",
 		"@typescript-eslint/eslint-plugin": "^4.13.0",
 		"@typescript-eslint/parser": "^4.13.0",
+		"esbuild": "^0.8.56",
 		"eslint": "^7.17.0",
 		"eslint-plugin-json": "^2.1.2",
 		"husky": "^4.3.7",
@@ -71,9 +68,6 @@
 		"remark-cli": "^9.0.0",
 		"remark-preset-lint-recommended": "^5.0.0",
 		"remark-preset-prettier": "^0.4.0",
-		"rollup": "^2.36.1",
-		"rollup-plugin-filesize": "^9.1.0",
-		"rollup-plugin-terser": "^7.0.2",
 		"typescript": "^4.1.3",
 		"vscode": "^1.1.37"
 	},
