@@ -19,7 +19,12 @@ const builderChannel = window.createOutputChannel('Electron Builder');
 export default async function build(): Promise<void> {
   await clearOutput(builderChannel);
 
-  if (!(await hasEligibleManifest() || await hasConfigFiles()) && !isSupportedGrammar()) {
+  if (!isSupportedGrammar()) {
+    builderChannel.appendLine('Active file is no eligible Electron Builder configuration');
+    return;
+  }
+
+  if (!(await hasEligibleManifest() || await hasConfigFiles())) {
     builderChannel.appendLine('No eligible Electron Builder configuration found in your workspace');
     return;
   }
@@ -72,9 +77,9 @@ export default async function build(): Promise<void> {
   });
 
   child.on('exit', (code) => {
-    if (code !== 0) {
-      builderChannel.show(true);
+    builderChannel.show(true);
 
+    if (code !== 0) {
       if (config.showNotifications) window.showErrorMessage('Building failed, see output for details');
       if (stdErr.length > 0) console.error(stdErr.join('\n'));
     }
