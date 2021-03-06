@@ -1,4 +1,4 @@
-# v0.7.0.1 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/0.7.0.1)
+# v0.7.0 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/0.7.0)
 
 - migrate to `esbuild` as bundler
 - remove snippets from `.vscodeignore`
