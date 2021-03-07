@@ -41,7 +41,7 @@ async function fileExists(filePath: string): Promise<boolean> {
 }
 
 function isSupportedGrammar(): boolean {
-  const languageID = window.activeTextEditor['_documentData']['_languageId'];
+  const languageID = window.activeTextEditor.document.languageId;
 
   return getSupportedGrammars().includes(languageID);
 }
