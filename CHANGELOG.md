@@ -1,3 +1,7 @@
+# v0.7.1 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/0.7.1)
+
+- fix `isSupportedGrammar()` to work with VSCode v1.54
+
 # v0.7.0 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/0.7.0)
 
 - migrate to `esbuild` as bundler
