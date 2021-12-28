@@ -69,8 +69,7 @@
 		"remark-cli": "^9.0.0",
 		"remark-preset-lint-recommended": "^5.0.0",
 		"remark-preset-prettier": "^0.4.0",
-		"typescript": "^4.1.3",
-		"vscode": "^1.1.37"
+		"typescript": "^4.1.3"
 	},
 	"extensionDependencies": [],
 	"icon": "images/logo.png",
