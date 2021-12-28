@@ -1,3 +1,8 @@
+# v0.7.2 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/v0.7.2)
+
+- update tool-chain
+- update dependencies
+
 # v0.7.1 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/v0.7.1)
 
 - fix `isSupportedGrammar()` to work with VSCode v1.54
