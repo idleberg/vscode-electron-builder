@@ -1,7 +1,7 @@
 # Electron Builder for Visual Studio Code
 
 [![Version](https://img.shields.io/github/v/release/idleberg/vscode-electron-builder?style=for-the-badge)](https://github.com/idleberg/vscode-electron-builder/releases)
-[![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/idleberg.nsis?style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=idleberg.nsis)
+[![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/idleberg.electron-builder?style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=idleberg.electron-builder)
 [![Build](https://img.shields.io/github/actions/workflow/status/idleberg/vscode-electron-builder/default.yml?style=for-the-badge)](https://github.com/idleberg/vscode-electron-builder/actions)
 
 Build system for [Electron Builder](https://www.electron.build/).
@@ -86,7 +86,7 @@ Custom arguments for electron builder
 
 ## Related
 
-- [vscode-electron-builder](https://marketplace.visualstudio.com/items?itemName=idleberg.nsis)
+- [vscode-nsis](https://marketplace.visualstudio.com/items?itemName=idleberg.nsis)
 
 ## License
 
