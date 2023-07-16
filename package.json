@@ -10,18 +10,20 @@
 		"url": "http://github.com/idleberg"
 	},
 	"scripts": {
+		"build": "npm-run-all --parallel build:*",
+		"build:code": "esbuild src/index.ts --bundle --platform=node --outfile=lib/extension.js --sourcemap --minify --external:vscode",
+		"build:icon": "gulp",
 		"compile": "npm run build",
-		"build": "node ./tools/build.cjs",
 		"dev": "npm run start",
 		"lint:json": "eslint --ext .json --ignore-path .gitignore",
 		"lint:md": "remark . --quiet --frail --ignore-path .gitignore",
 		"lint:ts": "eslint ./src --ignore-path .gitignore",
 		"lint:yaml": "eslint --ext .yaml --ext .yml --ignore-path .gitignore",
 		"lint": "npm-run-all --parallel lint:*",
-		"start": "NODE_ENV=development node ./tools/build.cjs",
+		"prepare": "husky install",
+		"start": "npm run build:code -- --watch",
 		"test": "npm run lint",
-		"vscode:prepublish": "npm run build",
-		"prepare": "husky install"
+		"vscode:prepublish": "npm run build"
 	},
 	"keywords": [
 		"apk",
@@ -55,21 +57,21 @@
 		"which": "^3.0.1"
 	},
 	"devDependencies": {
-		"@types/node": "^16.11.17",
-		"@types/vscode": "^1.75.0",
-		"@typescript-eslint/eslint-plugin": "^5.8.1",
-		"@typescript-eslint/parser": "^5.8.1",
-		"esbuild": "^0.18.13",
-		"eslint": "^8.5.0",
+		"@types/node": "^16.18.38",
+		"@types/vscode": "1.75.0",
+		"@typescript-eslint/eslint-plugin": "^5.62.0",
+		"@typescript-eslint/parser": "^5.62.0",
+		"esbuild": "^0.17.19",
+		"eslint": "^8.45.0",
 		"eslint-plugin-json": "^3.1.0",
 		"eslint-plugin-yaml": "^0.5.0",
 		"husky": "^8.0.3",
 		"lint-staged": "^13.2.3",
 		"npm-run-all": "^4.1.5",
-		"prettier": "^2.2.1",
+		"prettier": "^2.8.8",
 		"remark-cli": "^9.0.0",
 		"remark-preset-lint-recommended": "^5.0.0",
-		"remark-preset-prettier": "^0.4.0",
+		"remark-preset-prettier": "^0.4.1",
 		"typescript": "^5.1.6"
 	},
 	"extensionDependencies": [],
@@ -101,7 +103,8 @@
 				"electron-builder.pathToElectronBuilder": {
 					"type": "string",
 					"default": "${workspaceFolder}/node_modules/.bin/electron-builder",
-					"markdownDescription": "%pathToElectronBuilder%"
+					"markdownDescription": "%pathToElectronBuilder%",
+					"order": 1
 				},
 				"electron-builder.electronBuilderArguments": {
 					"type": "array",
@@ -109,7 +112,14 @@
 						"type": "string"
 					},
 					"default": [],
-					"markdownDescription": "%electronBuilderArguments%"
+					"markdownDescription": "%electronBuilderArguments%",
+					"order": 2
+				},
+				"electron-builder.disableTelemetry": {
+					"type": "boolean",
+					"default": false,
+					"description": "Disables extension telemetry, even though the global preferences might allow tracking",
+					"order": 3
 				}
 			}
 		},
