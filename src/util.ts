@@ -9,7 +9,7 @@ import { platform } from 'node:os';
 import { resolve } from 'node:path';
 import which from 'which';
 
-async function asyncFilter(arr, callback) {
+export async function asyncFilter(arr, callback) {
   const fail = Symbol();
 
   return (await Promise.all(
@@ -21,7 +21,7 @@ async function asyncFilter(arr, callback) {
 }
 
 // eslint-disable-next-line
-async function clearOutput(channel: any): Promise<void> {
+export async function clearOutput(channel: any): Promise<void> {
   const { alwaysShowOutput } = await getConfig('electron-builder');
 
   channel.clear();
@@ -30,7 +30,7 @@ async function clearOutput(channel: any): Promise<void> {
   }
 }
 
-async function fileExists(filePath: string): Promise<boolean> {
+export async function fileExists(filePath: string): Promise<boolean> {
   try {
     await fs.access(filePath, constants.F_OK);
   } catch (error) {
@@ -40,7 +40,7 @@ async function fileExists(filePath: string): Promise<boolean> {
   return true;
 }
 
-function isSupportedGrammar(): boolean {
+export function isSupportedGrammar(): boolean {
   const activeTextEditor = window.activeTextEditor;
 
   if (!activeTextEditor) {
@@ -52,7 +52,7 @@ function isSupportedGrammar(): boolean {
   return getSupportedGrammars().includes(languageID);
 }
 
-async function getElectronBuilderPath(): Promise<string> {
+export async function getElectronBuilderPath(): Promise<string> {
   // If stored, return pathToElectronBuilder
   const { pathToElectronBuilder } = await getConfig('electron-builder');
 
@@ -71,7 +71,7 @@ async function getElectronBuilderPath(): Promise<string> {
   return '';
 }
 
-function getPlatformFlag(): string | void {
+export function getPlatformFlag(): string | void {
   const currentPlatform = platform();
 
   switch(currentPlatform) {
@@ -86,7 +86,7 @@ function getPlatformFlag(): string | void {
   }
 }
 
-function getConfigFiles(): string[] {
+export function getConfigFiles(): string[] {
   return [
     // Ordered by precedence!
     'electron-builder.yml',
@@ -97,7 +97,7 @@ function getConfigFiles(): string[] {
   ];
 }
 
-function getSupportedGrammars(): string[] {
+export function getSupportedGrammars(): string[] {
   return [
     'electron-builder-js',
     'electron-builder-json',
@@ -106,7 +106,7 @@ function getSupportedGrammars(): string[] {
   ];
 }
 
-async function getProjectPath(): Promise<undefined | string> {
+export async function getProjectPath(): Promise<undefined | string> {
   let editor;
 
   try {
@@ -124,11 +124,11 @@ async function getProjectPath(): Promise<undefined | string> {
   }
 }
 
-function hasConfigArgument(electronBuilderArguments: string[]): boolean {
+export function hasConfigArgument(electronBuilderArguments: string[]): boolean {
   return electronBuilderArguments.includes('--config') || electronBuilderArguments.includes('-c');
 }
 
-async function hasEligibleManifest(): Promise<boolean> {
+export async function hasEligibleManifest(): Promise<boolean> {
   const projectPath = await getProjectPath();
 
   if (!projectPath?.length) {
@@ -155,7 +155,7 @@ async function hasEligibleManifest(): Promise<boolean> {
   return Boolean(manifest['build'] && manifest['build']['appId']);
 }
 
-async function hasConfigFiles(): Promise<boolean> {
+export async function hasConfigFiles(): Promise<boolean> {
   const configFiles = await getConfigFiles();
   const projectPath = await getProjectPath();
 
@@ -170,20 +170,6 @@ async function hasConfigFiles(): Promise<boolean> {
   );
 }
 
-function isValidConfigFile(fileName: string): boolean {
+export function isValidConfigFile(fileName: string): boolean {
   return Boolean(getConfigFiles().filter(configFile => fileName.endsWith(`/${configFile}`)).length);
 }
-
-export {
-  clearOutput,
-  fileExists,
-  getConfigFiles,
-  getElectronBuilderPath,
-  getPlatformFlag,
-  getProjectPath,
-  hasConfigArgument,
-  hasConfigFiles,
-  hasEligibleManifest,
-  isSupportedGrammar,
-  isValidConfigFile
-};
