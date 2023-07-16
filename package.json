@@ -73,7 +73,7 @@
 		"typescript": "^5.1.6"
 	},
 	"extensionDependencies": [],
-	"icon": "images/logo.png",
+	"icon": "resources/logo.png",
 	"galleryBanner": {
 		"color": "#2f3241",
 		"theme": "dark"
@@ -188,8 +188,8 @@
 				"command": "extension.electron-builder.build",
 				"title": "Electron Builder: Build",
 				"icon": {
-					"dark": "./images/icon--build-dark.svg",
-					"light": "./images/icon--build-light.svg"
+					"dark": "./resources/icon--build-dark.svg",
+					"light": "./resources/icon--build-light.svg"
 				}
 			}
 		],
