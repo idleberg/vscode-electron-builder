@@ -41,7 +41,13 @@ async function fileExists(filePath: string): Promise<boolean> {
 }
 
 function isSupportedGrammar(): boolean {
-  const languageID = window.activeTextEditor.document.languageId;
+  const activeTextEditor = window.activeTextEditor;
+
+  if (!activeTextEditor) {
+    return false;
+  }
+
+  const languageID = activeTextEditor.document.languageId;
 
   return getSupportedGrammars().includes(languageID);
 }
@@ -61,6 +67,8 @@ async function getElectronBuilderPath(): Promise<string> {
     console.error(error);
     window.showErrorMessage('No Electron Builder binary detected ');
   }
+
+  return '';
 }
 
 function getPlatformFlag(): string | void {
@@ -121,7 +129,13 @@ function hasConfigArgument(electronBuilderArguments: string[]): boolean {
 }
 
 async function hasEligibleManifest(): Promise<boolean> {
-  const manifestPath = resolve(await getProjectPath(), 'package.json');
+  const projectPath = await getProjectPath();
+
+  if (!projectPath?.length) {
+    return false;
+  }
+
+  const manifestPath = resolve(projectPath, 'package.json');
 
   if (!await fileExists(manifestPath)) {
     return false;
@@ -136,7 +150,7 @@ async function hasEligibleManifest(): Promise<boolean> {
     return false;
   }
 
-  const manifest: unknown = JSON.parse(manifestFile);
+  const manifest: Record<string, unknown> = JSON.parse(manifestFile);
 
   return Boolean(manifest['build'] && manifest['build']['appId']);
 }
@@ -144,6 +158,10 @@ async function hasEligibleManifest(): Promise<boolean> {
 async function hasConfigFiles(): Promise<boolean> {
   const configFiles = await getConfigFiles();
   const projectPath = await getProjectPath();
+
+  if (!projectPath?.length) {
+    return false;
+  }
 
   return Boolean(
     (await asyncFilter(configFiles, async configFile => {
