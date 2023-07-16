@@ -1,3 +1,9 @@
+# v0.8.0 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/v0.8.0)
+
+- add telemetry
+- update tooling
+- update dependencies
+
 # v0.7.2 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/v0.7.2)
 
 - update tool-chain
