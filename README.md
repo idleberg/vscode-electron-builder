@@ -1,10 +1,8 @@
 # Electron Builder for Visual Studio Code
 
-[![The MIT License](https://flat.badgen.net/badge/license/MIT/orange)](http://opensource.org/licenses/MIT)
-[![GitHub](https://flat.badgen.net/github/release/idleberg/vscode-electron-builder)](https://github.com/idleberg/vscode-electron-builder/releases)
-[![Visual Studio Marketplace](https://vsmarketplacebadge.apphb.com/installs-short/idleberg.electron-builder.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=idleberg.electron-builder)
-[![CI](https://img.shields.io/github/actions/workflow/status/idleberg/vscode-electron-builder/default.yml?style=flat-square)](https://github.com/idleberg/vscode-electron-builder/actions)
-[![David](https://flat.badgen.net/david/dep/idleberg/vscode-electron-builder)](https://david-dm.org/idleberg/vscode-electron-builder)
+[![Version](https://img.shields.io/github/v/release/idleberg/vscode-electron-builder?style=for-the-badge)](https://github.com/idleberg/vscode-electron-builder/releases)
+[![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/idleberg.nsis?style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=idleberg.nsis)
+[![Build](https://img.shields.io/github/actions/workflow/status/idleberg/vscode-electron-builder/default.yml?style=for-the-badge)](https://github.com/idleberg/vscode-electron-builder/actions)
 
 Build system for [Electron Builder](https://www.electron.build/).
 
@@ -67,7 +65,7 @@ Configuration Precedence:
 - `electron-builder.yml`
 - `electron-builder.yaml`
 - `electron-builder.json`
-- `electron-builder.toml`
+- `electron-builder.toml` (requires [`toml`](https://www.npmjs.com/package/toml))
 - `electron-builder.js`
 
 ### Options
@@ -88,7 +86,7 @@ Custom arguments for electron builder
 
 ## Related
 
-- [vscode-nsis](https://marketplace.visualstudio.com/items?itemName=idleberg.nsis)
+- [vscode-electron-builder](https://marketplace.visualstudio.com/items?itemName=idleberg.nsis)
 
 ## License
 
