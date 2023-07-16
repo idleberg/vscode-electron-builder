@@ -1,6 +1,6 @@
 import { getConfig } from 'vscode-get-config';
 import { window, WorkspaceConfiguration } from 'vscode';
-import { spawn } from 'child_process';
+import { spawn } from 'node:child_process';
 
 import {
   clearOutput,
@@ -13,10 +13,17 @@ import {
   isSupportedGrammar,
   isValidConfigFile
 } from './util';
+import { sendTelemetryEvent } from './telemetry';
 
 const builderChannel = window.createOutputChannel('Electron Builder');
 
 export default async function build(): Promise<void> {
+  const activeTextEditor = window.activeTextEditor;
+
+  if (!activeTextEditor) {
+    return;
+  }
+
   await clearOutput(builderChannel);
 
   if (!isSupportedGrammar()) {
@@ -29,7 +36,7 @@ export default async function build(): Promise<void> {
     return;
   }
 
-  const document = window.activeTextEditor.document;
+  const document = activeTextEditor.document;
   const { fileName } = document;
 
   try {
@@ -55,7 +62,8 @@ export default async function build(): Promise<void> {
 
   // Let's build
   const child = spawn(await getElectronBuilderPath(), electronBuilderArguments, { cwd: await getProjectPath()});
-  const stdErr = [];
+  const stdErr: string[] = [];
+  let hasErrors = false;
 
   child.stdout.on('data', (line: string ) => {
     builderChannel.appendLine(line.toString());
@@ -67,6 +75,8 @@ export default async function build(): Promise<void> {
   });
 
   child.on('error', (errorMessage: string) => {
+    hasErrors = true;
+
     if (errorMessage && errorMessage.toString().includes('ENOENT')) {
       window.showErrorMessage('Could not find electron-builder at specified path');
     } else {
@@ -83,5 +93,9 @@ export default async function build(): Promise<void> {
       if (config.showNotifications) window.showErrorMessage('Building failed, see output for details');
       if (stdErr.length > 0) console.error(stdErr.join('\n'));
     }
+
+    sendTelemetryEvent('build', {
+      hasErrors
+    });
   });
 }

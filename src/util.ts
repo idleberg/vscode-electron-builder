@@ -3,10 +3,10 @@ import {
   workspace,
 } from 'vscode';
 
-import { constants, promises as fs } from 'fs';
+import { constants, promises as fs } from 'node:fs';
 import { getConfig } from 'vscode-get-config';
-import { platform } from 'os';
-import { resolve } from 'path';
+import { platform } from 'node:os';
+import { resolve } from 'node:path';
 import which from 'which';
 
 async function asyncFilter(arr, callback) {
@@ -98,19 +98,22 @@ function getSupportedGrammars(): string[] {
   ];
 }
 
-async function getProjectPath(): Promise<null | string> {
+async function getProjectPath(): Promise<undefined | string> {
   let editor;
 
   try {
     editor = window.activeTextEditor;
   } catch (err) {
-    return null;
+    return undefined;
   }
 
-  const resource = editor.document.uri;
-  const { uri } = workspace.getWorkspaceFolder(resource);
+  try {
+    const workspaceFolder = workspace.getWorkspaceFolder(editor.document.uri);
 
-  return uri.fsPath || '';
+    return workspaceFolder ? workspaceFolder.uri.fsPath : '';
+  } catch (error) {
+    return undefined;
+  }
 }
 
 function hasConfigArgument(electronBuilderArguments: string[]): boolean {
