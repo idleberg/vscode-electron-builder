@@ -10,9 +10,7 @@
 		"url": "http://github.com/idleberg"
 	},
 	"scripts": {
-		"build": "npm-run-all --parallel build:*",
-		"build:code": "esbuild src/index.ts --bundle --platform=node --outfile=lib/extension.js --sourcemap --minify --external:vscode",
-		"build:icon": "gulp",
+		"build": "esbuild src/index.ts --bundle --platform=node --outfile=lib/extension.js --sourcemap --minify --external:vscode",
 		"compile": "npm run build",
 		"dev": "npm run start",
 		"lint:json": "eslint --ext .json --ignore-path .gitignore",
