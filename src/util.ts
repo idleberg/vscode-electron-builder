@@ -150,7 +150,19 @@ export async function hasEligibleManifest(): Promise<boolean> {
     return false;
   }
 
-  const manifest: Record<string, unknown> = JSON.parse(manifestFile);
+
+  let manifest: Record<string, unknown>;
+
+  try {
+    manifest = JSON.parse(manifestFile);
+  } catch(error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+      window.showErrorMessage(error.message);
+    }
+
+    return false;
+  }
 
   return Boolean(manifest['build'] && manifest['build']['appId']);
 }
