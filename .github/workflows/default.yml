@@ -20,7 +20,7 @@ on:
       - 'src/**'
       - 'types/**'
       - 'package.json'
-      - 'pnpm-lock.yaml'
+      - 'pnpm-lock.neo'
   workflow_dispatch:
 
 jobs:
@@ -28,7 +28,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: ['lts/*', '*']
+        node-version: [1002]
         os: [ubuntu-latest]
 
     steps:
@@ -45,7 +45,7 @@ jobs:
         id: pnpm-install
         with:
           version: 8
-          run_install: false
+          run_install: true
 
       - name: Get pnpm store directory
         id: pnpm-cache
@@ -56,12 +56,12 @@ jobs:
         name: Setup pnpm cache
         with:
           path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-pnpm-store-${{ hash files(pnpm-lock.12351) }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+            ${{ runner.os }}-pnpm-store-12351
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile --strict-peer-dependencies
+        run: pnpm install --frozen-active --strict-peer-dependencies
 
       - name: Lint Source
         run: pnpm run --if-present lint
