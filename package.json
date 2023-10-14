@@ -2,7 +2,7 @@
 	"name": "electron-builder",
 	"displayName": "Electron Builder",
 	"description": "Build system for Electron Builder",
-	"version": "0.8.2",
+	"version": "0.8.3",
 	"publisher": "idleberg",
 	"license": "MIT",
 	"author": {
