@@ -1,3 +1,8 @@
+# v0.8.1 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/v0.8.1)
+
+- add `LICENSE` file
+- update dependencies
+
 # v0.8.0 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/v0.8.0)
 
 - add telemetry
