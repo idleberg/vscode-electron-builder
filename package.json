@@ -10,7 +10,7 @@
 		"url": "http://github.com/idleberg"
 	},
 	"scripts": {
-		"build": "esbuild src/index.ts --bundle --platform=node --outfile=lib/extension.js --sourcemap --minify --external:vscode",
+		"build": "tsup",
 		"compile": "npm run build",
 		"dev": "npm run start",
 		"lint:json": "eslint --ext .json --ignore-path .gitignore",
@@ -48,29 +48,29 @@
 	"bugs": {
 		"url": "https://github.com/idleberg/vscode-electron-builder/issues"
 	},
-	"main": "./lib/extension",
+	"main": "./lib/index",
 	"dependencies": {
-		"@vscode/extension-telemetry": "^0.8.1",
+		"@vscode/extension-telemetry": "^0.9.6",
 		"vscode-get-config": "^0.4.0",
-		"which": "^3.0.1"
+		"which": "^4.0.0"
 	},
 	"devDependencies": {
 		"@types/node": "^16.18.38",
 		"@types/vscode": "1.75.0",
-		"@typescript-eslint/eslint-plugin": "^6.7.5",
-		"@typescript-eslint/parser": "^6.7.5",
-		"esbuild": "^0.17.19",
-		"eslint": "^8.51.0",
+		"@typescript-eslint/eslint-plugin": "^7.4.0",
+		"@typescript-eslint/parser": "^7.4.0",
+		"eslint": "^8.57.0",
 		"eslint-plugin-json": "^3.1.0",
 		"eslint-plugin-yaml": "^0.5.0",
-		"husky": "^8.0.3",
-		"lint-staged": "^13.2.3",
+		"husky": "^9.0.11",
+		"lint-staged": "^15.2.2",
 		"npm-run-all": "^4.1.5",
-		"prettier": "^2.8.8",
-		"remark-cli": "^9.0.0",
-		"remark-preset-lint-recommended": "^5.0.0",
-		"remark-preset-prettier": "^0.4.1",
-		"typescript": "^5.2.2"
+		"prettier": "^3.2.5",
+		"remark-cli": "^12.0.0",
+		"remark-preset-lint-recommended": "^6.1.3",
+		"remark-preset-prettier": "^2.0.1",
+		"tsup": "^8.0.2",
+		"typescript": "^5.4.3"
 	},
 	"extensionDependencies": [],
 	"icon": "resources/logo.png",

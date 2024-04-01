@@ -1,3 +1,7 @@
+# v0.8.2 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/v0.8.2)
+
+- update dependencies
+
 # v0.8.1 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/v0.8.1)
 
 - add `LICENSE` file
