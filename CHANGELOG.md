@@ -1,3 +1,8 @@
+# v0.9.0 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/v0.9.0)
+
+- remove telemetry
+- fix build
+
 # v0.8.2 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/v0.8.2)
 
 - update dependencies

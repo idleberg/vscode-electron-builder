@@ -52,7 +52,6 @@
 	},
 	"main": "./lib/index",
 	"dependencies": {
-		"@vscode/extension-telemetry": "^0.9.6",
 		"vscode-get-config": "^0.4.0",
 		"which": "^4.0.0"
 	},
@@ -88,7 +87,6 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.electron-builder.build",
 		"onLanguage:electron-builder-js",
 		"onLanguage:electron-builder-json",
 		"onLanguage:electron-builder-toml",

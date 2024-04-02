@@ -13,7 +13,6 @@ import {
   isSupportedGrammar,
   isValidConfigFile
 } from './util';
-import { sendTelemetryEvent } from './telemetry';
 
 const builderChannel = window.createOutputChannel('Electron Builder');
 
@@ -63,7 +62,6 @@ export default async function build(): Promise<void> {
   // Let's build
   const child = spawn(await getElectronBuilderPath(), electronBuilderArguments, { cwd: await getProjectPath()});
   const stdErr: string[] = [];
-  let hasErrors = false;
 
   child.stdout.on('data', (line: string ) => {
     builderChannel.appendLine(line.toString());
@@ -75,8 +73,6 @@ export default async function build(): Promise<void> {
   });
 
   child.on('error', (errorMessage: string) => {
-    hasErrors = true;
-
     if (errorMessage && errorMessage.toString().includes('ENOENT')) {
       window.showErrorMessage('Could not find electron-builder at specified path');
     } else {
@@ -93,9 +89,5 @@ export default async function build(): Promise<void> {
       if (config.showNotifications) window.showErrorMessage('Building failed, see output for details');
       if (stdErr.length > 0) console.error(stdErr.join('\n'));
     }
-
-    sendTelemetryEvent('build', {
-      hasErrors
-    });
   });
 }
