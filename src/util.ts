@@ -33,6 +33,7 @@ export async function clearOutput(channel: any): Promise<void> {
 export async function fileExists(filePath: string): Promise<boolean> {
   try {
     await fs.access(filePath, constants.F_OK);
+    /* eslint-disable @typescript-eslint/no-unused-vars */
   } catch (error) {
     return false;
   }
@@ -111,7 +112,8 @@ export async function getProjectPath(): Promise<undefined | string> {
 
   try {
     editor = window.activeTextEditor;
-  } catch (err) {
+    /* eslint-disable @typescript-eslint/no-unused-vars */
+  } catch (error) {
     return undefined;
   }
 
@@ -119,6 +121,7 @@ export async function getProjectPath(): Promise<undefined | string> {
     const workspaceFolder = workspace.getWorkspaceFolder(editor.document.uri);
 
     return workspaceFolder ? workspaceFolder.uri.fsPath : '';
+    /* eslint-disable @typescript-eslint/no-unused-vars */
   } catch (error) {
     return undefined;
   }
