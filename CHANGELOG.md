@@ -1,3 +1,8 @@
+# v0.9.3 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/v0.9.3)
+
+- update tooling
+- update dependencies
+
 # v0.9.2 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/v0.9.2)
 
 - update dependencies
