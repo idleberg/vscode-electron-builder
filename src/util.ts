@@ -1,12 +1,22 @@
 import { window, workspace } from "vscode";
 
 import { constants, promises as fs } from "node:fs";
+// @ts-expect-error TODO Fix package
 import { getConfig } from "vscode-get-config";
 import { platform } from "node:os";
 import { resolve } from "node:path";
 import which from "which";
 
-export async function asyncFilter(arr, callback) {
+type ManifestStub = {
+	build: {
+		appId: string;
+	};
+};
+
+export async function asyncFilter(
+	arr: string[],
+	callback: (arg: string) => Promise<boolean>,
+) {
 	const fail = Symbol();
 
 	return (
@@ -113,8 +123,11 @@ export async function getProjectPath(): Promise<undefined | string> {
 
 	try {
 		editor = window.activeTextEditor;
-		/* eslint-disable @typescript-eslint/no-unused-vars */
-	} catch (error) {
+	} catch (_error) {
+		return undefined;
+	}
+
+	if (!editor) {
 		return undefined;
 	}
 
@@ -122,8 +135,7 @@ export async function getProjectPath(): Promise<undefined | string> {
 		const workspaceFolder = workspace.getWorkspaceFolder(editor.document.uri);
 
 		return workspaceFolder ? workspaceFolder.uri.fsPath : "";
-		/* eslint-disable @typescript-eslint/no-unused-vars */
-	} catch (error) {
+	} catch (_error) {
 		return undefined;
 	}
 }
@@ -157,7 +169,7 @@ export async function hasEligibleManifest(): Promise<boolean> {
 		return false;
 	}
 
-	let manifest: Record<string, unknown>;
+	let manifest: ManifestStub;
 
 	try {
 		manifest = JSON.parse(manifestFile);
@@ -170,7 +182,7 @@ export async function hasEligibleManifest(): Promise<boolean> {
 		return false;
 	}
 
-	return Boolean(manifest["build"] && manifest["build"]["appId"]);
+	return Boolean(manifest.build?.appId);
 }
 
 export async function hasConfigFiles(): Promise<boolean> {
@@ -183,7 +195,7 @@ export async function hasConfigFiles(): Promise<boolean> {
 
 	return Boolean(
 		(
-			await asyncFilter(configFiles, async (configFile) => {
+			await asyncFilter(configFiles, async (configFile: string) => {
 				return await fileExists(resolve(projectPath, configFile));
 			})
 		).length,

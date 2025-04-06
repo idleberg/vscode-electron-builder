@@ -1,5 +1,6 @@
+// @ts-expect-error TODO Fix package
 import { getConfig } from "vscode-get-config";
-import { window, WorkspaceConfiguration } from "vscode";
+import { window, type WorkspaceConfiguration } from "vscode";
 import { spawn } from "node:child_process";
 
 import {
