@@ -99,7 +99,7 @@ export default async function build(): Promise<void> {
 	});
 
 	child.on("exit", (code) => {
-		builderChannel.show(true);
+		builderChannel.show();
 
 		if (code !== 0) {
 			if (config.showNotifications)

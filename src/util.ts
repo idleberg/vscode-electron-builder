@@ -32,7 +32,7 @@ export async function clearOutput(channel: any): Promise<void> {
 
 	channel.clear();
 	if (alwaysShowOutput === true) {
-		channel.show(true);
+		channel.show();
 	}
 }
 
