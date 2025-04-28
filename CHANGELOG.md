@@ -1,3 +1,8 @@
+# v0.9.4 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/v0.9.4)
+
+- do not focus output channel
+- update dependencies
+
 # v0.9.3 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/v0.9.3)
 
 - update tooling
