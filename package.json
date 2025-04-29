@@ -47,7 +47,6 @@
 	},
 	"main": "./lib/index",
 	"dependencies": {
-		"nano-staged": "^0.8.0",
 		"vscode-get-config": "^0.4.0",
 		"which": "^5.0.0"
 	},
@@ -238,9 +237,5 @@
 				"path": "./snippets/yaml/win.json"
 			}
 		]
-	},
-	"nano-staged": {
-		"*.(ts|json|yml)": ["eslint --cache --fix", "prettier --write"],
-		"*.md": "prettier --write"
 	}
 }
