@@ -1,29 +1,24 @@
 {
 	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
 	"organizeImports": {
-		"enabled": true,
+		"enabled": true
 	},
 	"files": {
-		"ignore": [
-			"lib/**",
-			"node_modules/**",
-			"package.json",
-			"pnpm-lockfile.yaml",
-		],
+		"ignore": ["lib/**", "node_modules/**", "pnpm-lockfile.yaml"]
 	},
 	"linter": {
 		"enabled": true,
 		"rules": {
-			"recommended": true,
-		},
+			"recommended": true
+		}
 	},
 	"formatter": {
-		"useEditorconfig": true,
+		"useEditorconfig": true
 	},
 	"javascript": {
 		"formatter": {
 			"lineWidth": 120,
-			"quoteStyle": "single",
-		},
-	},
+			"quoteStyle": "single"
+		}
+	}
 }
