@@ -74,10 +74,7 @@
 	"engines": {
 		"vscode": "^1.85.0"
 	},
-	"categories": [
-		"Snippets",
-		"Other"
-	],
+	"categories": ["Snippets", "Other"],
 	"activationEvents": [
 		"onLanguage:electron-builder-js",
 		"onLanguage:electron-builder-json",
@@ -116,41 +113,23 @@
 		"languages": [
 			{
 				"id": "electron-builder-js",
-				"aliases": [
-					"Electron Builder Configuration (JavaScript)"
-				],
-				"extensions": [
-					"electron-builder.js"
-				]
+				"aliases": ["Electron Builder Configuration (JavaScript)"],
+				"extensions": ["electron-builder.js"]
 			},
 			{
 				"id": "electron-builder-json",
-				"aliases": [
-					"Electron Builder Configuration (JSON)"
-				],
-				"extensions": [
-					"electron-builder.json",
-					"electron-builder.json5"
-				]
+				"aliases": ["Electron Builder Configuration (JSON)"],
+				"extensions": ["electron-builder.json", "electron-builder.json5"]
 			},
 			{
 				"id": "electron-builder-toml",
-				"aliases": [
-					"Electron Builder Configuration (TOML)"
-				],
-				"extensions": [
-					"electron-builder.toml"
-				]
+				"aliases": ["Electron Builder Configuration (TOML)"],
+				"extensions": ["electron-builder.toml"]
 			},
 			{
 				"id": "electron-builder-yaml",
-				"aliases": [
-					"Electron Builder Configuration (YAML)"
-				],
-				"extensions": [
-					"electron-builder.yaml",
-					"electron-builder.yml"
-				]
+				"aliases": ["Electron Builder Configuration (YAML)"],
+				"extensions": ["electron-builder.yaml", "electron-builder.yml"]
 			}
 		],
 		"grammars": [
@@ -261,10 +240,7 @@
 		]
 	},
 	"nano-staged": {
-		"*.(ts|json|yml)": [
-			"eslint --cache --fix",
-			"prettier --write"
-		],
+		"*.(ts|json|yml)": ["eslint --cache --fix", "prettier --write"],
 		"*.md": "prettier --write"
 	}
 }

@@ -1,7 +1,7 @@
+import { spawn } from 'node:child_process';
+import { type WorkspaceConfiguration, window } from 'vscode';
 // @ts-expect-error TODO Fix package
-import { getConfig } from "vscode-get-config";
-import { window, type WorkspaceConfiguration } from "vscode";
-import { spawn } from "node:child_process";
+import { getConfig } from 'vscode-get-config';
 
 import {
 	clearOutput,
@@ -13,9 +13,9 @@ import {
 	hasEligibleManifest,
 	isSupportedGrammar,
 	isValidConfigFile,
-} from "./util";
+} from './util';
 
-const builderChannel = window.createOutputChannel("Electron Builder");
+const builderChannel = window.createOutputChannel('Electron Builder');
 
 export default async function build(): Promise<void> {
 	const activeTextEditor = window.activeTextEditor;
@@ -27,16 +27,12 @@ export default async function build(): Promise<void> {
 	await clearOutput(builderChannel);
 
 	if (!isSupportedGrammar()) {
-		builderChannel.appendLine(
-			"Active file is no eligible Electron Builder configuration",
-		);
+		builderChannel.appendLine('Active file is no eligible Electron Builder configuration');
 		return;
 	}
 
 	if (!((await hasEligibleManifest()) || (await hasConfigFiles()))) {
-		builderChannel.appendLine(
-			"No eligible Electron Builder configuration found in your workspace",
-		);
+		builderChannel.appendLine('No eligible Electron Builder configuration found in your workspace');
 		return;
 	}
 
@@ -46,14 +42,12 @@ export default async function build(): Promise<void> {
 	try {
 		await document.save();
 	} catch (errorMessage) {
-		window.showErrorMessage(
-			`Could not save document ${fileName}, see console for details`,
-		);
+		window.showErrorMessage(`Could not save document ${fileName}, see console for details`);
 		console.error(errorMessage);
 		return;
 	}
 
-	const config: WorkspaceConfiguration = await getConfig("electron-builder");
+	const config: WorkspaceConfiguration = await getConfig('electron-builder');
 
 	const electronBuilderArguments = config.electronBuilderArguments?.length
 		? [...config.electronBuilderArguments]
@@ -61,50 +55,40 @@ export default async function build(): Promise<void> {
 
 	if (
 		!hasConfigArgument(electronBuilderArguments) &&
-		(isValidConfigFile(fileName) ||
-			!((await hasEligibleManifest()) || (await hasConfigFiles())))
+		(isValidConfigFile(fileName) || !((await hasEligibleManifest()) || (await hasConfigFiles())))
 	) {
-		electronBuilderArguments.push("--config", fileName);
+		electronBuilderArguments.push('--config', fileName);
 	}
 
 	// Let's build
-	const child = spawn(
-		await getElectronBuilderPath(),
-		electronBuilderArguments,
-		{ cwd: await getProjectPath() },
-	);
+	const child = spawn(await getElectronBuilderPath(), electronBuilderArguments, { cwd: await getProjectPath() });
 	const stdErr: string[] = [];
 
-	child.stdout.on("data", (line: string) => {
+	child.stdout.on('data', (line: string) => {
 		builderChannel.appendLine(line.toString());
 	});
 
-	child.stderr.on("data", (line: string) => {
+	child.stderr.on('data', (line: string) => {
 		stdErr.push(line);
 		builderChannel.appendLine(line.toString());
 	});
 
-	child.on("error", (errorMessage: string) => {
-		if (errorMessage && errorMessage.toString().includes("ENOENT")) {
-			window.showErrorMessage(
-				"Could not find electron-builder at specified path",
-			);
+	child.on('error', (errorMessage: string) => {
+		if (errorMessage?.toString().includes('ENOENT')) {
+			window.showErrorMessage('Could not find electron-builder at specified path');
 		} else {
-			window.showErrorMessage(
-				"Failed to run electron-builder, see console for details",
-			);
+			window.showErrorMessage('Failed to run electron-builder, see console for details');
 		}
 
 		console.error(errorMessage);
 	});
 
-	child.on("exit", (code) => {
+	child.on('exit', (code) => {
 		builderChannel.show();
 
 		if (code !== 0) {
-			if (config.showNotifications)
-				window.showErrorMessage("Building failed, see output for details");
-			if (stdErr.length > 0) console.error(stdErr.join("\n"));
+			if (config.showNotifications) window.showErrorMessage('Building failed, see output for details');
+			if (stdErr.length > 0) console.error(stdErr.join('\n'));
 		}
 	});
 }

@@ -1,11 +1,11 @@
-import { window, workspace } from "vscode";
+import { type OutputChannel, type TextEditor, window, workspace } from 'vscode';
 
-import { constants, promises as fs } from "node:fs";
+import { constants, promises as fs } from 'node:fs';
+import { platform } from 'node:os';
+import { resolve } from 'node:path';
 // @ts-expect-error TODO Fix package
-import { getConfig } from "vscode-get-config";
-import { platform } from "node:os";
-import { resolve } from "node:path";
-import which from "which";
+import { getConfig } from 'vscode-get-config';
+import which from 'which';
 
 type ManifestStub = {
 	build: {
@@ -13,22 +13,15 @@ type ManifestStub = {
 	};
 };
 
-export async function asyncFilter(
-	arr: string[],
-	callback: (arg: string) => Promise<boolean>,
-) {
+export async function asyncFilter(arr: string[], callback: (arg: string) => Promise<boolean>) {
 	const fail = Symbol();
 
-	return (
-		await Promise.all(
-			arr.map(async (item) => ((await callback(item)) ? item : fail)),
-		)
-	).filter((i) => i !== fail);
+	return (await Promise.all(arr.map(async (item) => ((await callback(item)) ? item : fail)))).filter((i) => i !== fail);
 }
 
 // eslint-disable-next-line
-export async function clearOutput(channel: any): Promise<void> {
-	const { alwaysShowOutput } = await getConfig("electron-builder");
+export async function clearOutput(channel: OutputChannel): Promise<void> {
+	const { alwaysShowOutput } = await getConfig('electron-builder');
 
 	channel.clear();
 	if (alwaysShowOutput === true) {
@@ -61,36 +54,33 @@ export function isSupportedGrammar(): boolean {
 
 export async function getElectronBuilderPath(): Promise<string> {
 	// If stored, return pathToElectronBuilder
-	const { pathToElectronBuilder } = await getConfig("electron-builder");
+	const { pathToElectronBuilder } = await getConfig('electron-builder');
 
-	if (
-		pathToElectronBuilder?.length &&
-		pathToElectronBuilder.endsWith("/node_modules/.bin/electron-builder")
-	) {
+	if (pathToElectronBuilder?.length && pathToElectronBuilder.endsWith('/node_modules/.bin/electron-builder')) {
 		return pathToElectronBuilder;
 	}
 
 	try {
 		// Global installation?!
-		return String(await which("electron-builder"));
+		return String(await which('electron-builder'));
 	} catch (error) {
 		console.error(error);
-		window.showErrorMessage("No Electron Builder binary detected ");
+		window.showErrorMessage('No Electron Builder binary detected ');
 	}
 
-	return "";
+	return '';
 }
 
-export function getPlatformFlag(): string | void {
+export function getPlatformFlag(): string {
 	const currentPlatform = platform();
 
 	switch (currentPlatform) {
-		case "linux":
-			return "--linux";
-		case "darwin":
-			return "--mac";
-		case "win32":
-			return "--windows";
+		case 'linux':
+			return '--linux';
+		case 'darwin':
+			return '--mac';
+		case 'win32':
+			return '--windows';
 		default:
 			window.showErrorMessage(
 				`Unsupported platform '${currentPlatform}' detected, please specify custom build arguments`,
@@ -101,25 +91,20 @@ export function getPlatformFlag(): string | void {
 export function getConfigFiles(): string[] {
 	return [
 		// Ordered by precedence!
-		"electron-builder.yml",
-		"electron-builder.yaml",
-		"electron-builder.json",
-		"electron-builder.toml",
-		"electron-builder.js",
+		'electron-builder.yml',
+		'electron-builder.yaml',
+		'electron-builder.json',
+		'electron-builder.toml',
+		'electron-builder.js',
 	];
 }
 
 export function getSupportedGrammars(): string[] {
-	return [
-		"electron-builder-js",
-		"electron-builder-json",
-		"electron-builder-toml",
-		"electron-builder-yaml",
-	];
+	return ['electron-builder-js', 'electron-builder-json', 'electron-builder-toml', 'electron-builder-yaml'];
 }
 
 export async function getProjectPath(): Promise<undefined | string> {
-	let editor;
+	let editor: TextEditor | undefined;
 
 	try {
 		editor = window.activeTextEditor;
@@ -134,17 +119,14 @@ export async function getProjectPath(): Promise<undefined | string> {
 	try {
 		const workspaceFolder = workspace.getWorkspaceFolder(editor.document.uri);
 
-		return workspaceFolder ? workspaceFolder.uri.fsPath : "";
+		return workspaceFolder ? workspaceFolder.uri.fsPath : '';
 	} catch (_error) {
 		return undefined;
 	}
 }
 
 export function hasConfigArgument(electronBuilderArguments: string[]): boolean {
-	return (
-		electronBuilderArguments.includes("--config") ||
-		electronBuilderArguments.includes("-c")
-	);
+	return electronBuilderArguments.includes('--config') || electronBuilderArguments.includes('-c');
 }
 
 export async function hasEligibleManifest(): Promise<boolean> {
@@ -154,16 +136,16 @@ export async function hasEligibleManifest(): Promise<boolean> {
 		return false;
 	}
 
-	const manifestPath = resolve(projectPath, "package.json");
+	const manifestPath = resolve(projectPath, 'package.json');
 
 	if (!(await fileExists(manifestPath))) {
 		return false;
 	}
 
-	let manifestFile;
+	let manifestFile: string;
 
 	try {
-		manifestFile = await fs.readFile(manifestPath, "utf-8");
+		manifestFile = await fs.readFile(manifestPath, 'utf-8');
 	} catch (error) {
 		console.error(error);
 		return false;
@@ -203,8 +185,5 @@ export async function hasConfigFiles(): Promise<boolean> {
 }
 
 export function isValidConfigFile(fileName: string): boolean {
-	return Boolean(
-		getConfigFiles().filter((configFile) => fileName.endsWith(`/${configFile}`))
-			.length,
-	);
+	return Boolean(getConfigFiles().filter((configFile) => fileName.endsWith(`/${configFile}`)).length);
 }

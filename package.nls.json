@@ -1,4 +1,4 @@
 {
-  "pathToElectronBuilder": "Specify the full path to `electron-builder`",
-  "electronBuilderArguments": "Specify the [default arguments](https://www.electron.build/cli) for `electron-builder`"
+	"pathToElectronBuilder": "Specify the full path to `electron-builder`",
+	"electronBuilderArguments": "Specify the [default arguments](https://www.electron.build/cli) for `electron-builder`"
 }
