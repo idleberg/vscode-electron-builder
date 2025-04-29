@@ -42,9 +42,6 @@ importers:
       lefthook:
         specifier: ^1.11.12
         version: 1.11.12
-      prettier:
-        specifier: ^3.5.3
-        version: 3.5.3
       tsup:
         specifier: ^8.4.0
         version: 8.4.0(jiti@2.4.2)(typescript@5.8.3)(yaml@2.7.1)
@@ -954,11 +951,6 @@ packages:
         optional: true
       yaml:
         optional: true
-
-  prettier@3.5.3:
-    resolution: {integrity: sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==}
-    engines: {node: '>=14'}
-    hasBin: true
 
   punycode@2.3.1:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
@@ -1914,8 +1906,6 @@ snapshots:
     optionalDependencies:
       jiti: 2.4.2
       yaml: 2.7.1
-
-  prettier@3.5.3: {}
 
   punycode@2.3.1: {}
 
