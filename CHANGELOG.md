@@ -1,3 +1,7 @@
+# v0.9.6 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/v0.9.6)
+
+- purely cosmetic changes
+
 # v0.9.5 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/v0.9.5)
 
 - build extension image from svg source
