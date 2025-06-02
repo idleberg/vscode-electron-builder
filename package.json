@@ -11,7 +11,9 @@
 	},
 	"scripts": {
 		"compile": "npm run build",
-		"build": "tsup",
+		"build": "concurrently --prefix-colors 'blue,green' 'npm:build:*'",
+		"build:code": "tsup",
+		"build:image": "sharp resize 1024 1024 --input src/logo.svg --output resources/logo.png",
 		"dev": "npm run start",
 		"lint": "biome check --config-path=biome.jsonc --no-errors-on-unmatched --vcs-enabled=true --vcs-use-ignore-file=true",
 		"publish:ovsx": "ovsx publish --no-dependencies",
@@ -60,6 +62,7 @@
 		"@types/which": "^3.0.4",
 		"concurrently": "^9.1.2",
 		"lefthook": "^1.11.12",
+		"sharp-cli": "^5.1.0",
 		"tsup": "^8.4.0",
 		"typescript": "^5.8.3"
 	},
@@ -72,7 +75,10 @@
 	"engines": {
 		"vscode": "^1.85.0"
 	},
-	"categories": ["Snippets", "Other"],
+	"categories": [
+		"Snippets",
+		"Other"
+	],
 	"activationEvents": [
 		"onLanguage:electron-builder-js",
 		"onLanguage:electron-builder-json",
@@ -111,23 +117,41 @@
 		"languages": [
 			{
 				"id": "electron-builder-js",
-				"aliases": ["Electron Builder Configuration (JavaScript)"],
-				"extensions": ["electron-builder.js"]
+				"aliases": [
+					"Electron Builder Configuration (JavaScript)"
+				],
+				"extensions": [
+					"electron-builder.js"
+				]
 			},
 			{
 				"id": "electron-builder-json",
-				"aliases": ["Electron Builder Configuration (JSON)"],
-				"extensions": ["electron-builder.json", "electron-builder.json5"]
+				"aliases": [
+					"Electron Builder Configuration (JSON)"
+				],
+				"extensions": [
+					"electron-builder.json",
+					"electron-builder.json5"
+				]
 			},
 			{
 				"id": "electron-builder-toml",
-				"aliases": ["Electron Builder Configuration (TOML)"],
-				"extensions": ["electron-builder.toml"]
+				"aliases": [
+					"Electron Builder Configuration (TOML)"
+				],
+				"extensions": [
+					"electron-builder.toml"
+				]
 			},
 			{
 				"id": "electron-builder-yaml",
-				"aliases": ["Electron Builder Configuration (YAML)"],
-				"extensions": ["electron-builder.yaml", "electron-builder.yml"]
+				"aliases": [
+					"Electron Builder Configuration (YAML)"
+				],
+				"extensions": [
+					"electron-builder.yaml",
+					"electron-builder.yml"
+				]
 			}
 		],
 		"grammars": [

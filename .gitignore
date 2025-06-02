@@ -1,7 +1,6 @@
 # Development
 *.map
 .eslintcache
-lib/
 tsconfig.tsbuildinfo
 
 # Package managers
@@ -11,6 +10,10 @@ npm-debug.log*
 package-lock.json
 vendor/
 yarn.lock
+
+# Build
+lib/
+resources/logo.png
 
 # Project specific
 *.vsix
