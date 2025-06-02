@@ -69,7 +69,7 @@
 	"extensionDependencies": [],
 	"icon": "resources/logo.png",
 	"galleryBanner": {
-		"color": "#2f3241",
+		"color": "#303242",
 		"theme": "dark"
 	},
 	"engines": {
