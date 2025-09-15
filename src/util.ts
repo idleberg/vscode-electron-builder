@@ -1,8 +1,7 @@
-import { type OutputChannel, type TextEditor, window, workspace } from 'vscode';
-
 import { constants, promises as fs } from 'node:fs';
 import { platform } from 'node:os';
 import { resolve } from 'node:path';
+import { type OutputChannel, type TextEditor, window, workspace } from 'vscode';
 // @ts-expect-error TODO Fix package
 import { getConfig } from 'vscode-get-config';
 import which from 'which';
@@ -33,7 +32,7 @@ export async function fileExists(filePath: string): Promise<boolean> {
 	try {
 		await fs.access(filePath, constants.F_OK);
 		/* eslint-disable @typescript-eslint/no-unused-vars */
-	} catch (error) {
+	} catch {
 		return false;
 	}
 
