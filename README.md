@@ -66,7 +66,7 @@ Configuration Precedence:
 - `electron-builder.yml`
 - `electron-builder.yaml`
 - `electron-builder.json`
-- `electron-builder.toml` (requires [`toml`](https://www.npmjs.com/package/toml))
+- `electron-builder.toml` (requires [`toml`](https://www.npmjs.com/package/toml) installed)
 - `electron-builder.js`
 
 ### Options
