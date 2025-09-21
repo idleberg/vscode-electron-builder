@@ -1,5 +1,5 @@
 {
-	"extends": "@idleberg/configs/tsconfig",
+	"extends": "@idleberg/configs/tsc",
 	"compilerOptions": {
 		"module": "ESNext",
 		"moduleResolution": "bundler",

@@ -12,7 +12,7 @@
 	"scripts": {
 		"compile": "npm run build",
 		"build": "concurrently --prefix-colors 'blue,green' 'npm:build:*'",
-		"build:code": "tsup",
+		"build:code": "tsdown",
 		"build:image": "sharp resize 1024 1024 --input src/logo.svg --output resources/logo.png",
 		"dev": "npm run start",
 		"lint": "biome check",
@@ -65,7 +65,7 @@
 		"concurrently": "^9.2.1",
 		"lefthook": "^1.13.0",
 		"sharp-cli": "^5.2.0",
-		"tsup": "^8.5.0",
+		"tsdown": "^0.15.4",
 		"typescript": "^5.9.2"
 	},
 	"extensionDependencies": [],
