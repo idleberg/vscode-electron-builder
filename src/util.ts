@@ -69,7 +69,7 @@ export async function getElectronBuilderPath(): Promise<string> {
 	return '';
 }
 
-export function getPlatformFlag(): string {
+export function getPlatformFlag(): string | void {
 	const currentPlatform = platform();
 
 	switch (currentPlatform) {
