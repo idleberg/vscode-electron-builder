@@ -1,3 +1,8 @@
+# v0.9.7 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/v0.9.7)
+
+- improve error handling when creating build tasks
+- update dependencies
+
 # v0.9.6 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/v0.9.6)
 
 - purely cosmetic changes
