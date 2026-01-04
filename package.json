@@ -48,6 +48,9 @@
 	"bugs": {
 		"url": "https://github.com/idleberg/vscode-electron-builder/issues"
 	},
+	"sponsor": {
+		"url": "https://buymeacoffee.com/idleberg"
+	},
 	"main": "./lib/index",
 	"dependencies": {
 		"vscode-get-config": "^0.5.0",
