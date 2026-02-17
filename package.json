@@ -16,7 +16,6 @@
 		"build:image": "sharp resize 1024 1024 --input src/logo.svg --output resources/logo.png",
 		"dev": "npm run start",
 		"lint": "biome check",
-		"prepare": "lefthook install",
 		"publish:ovsx": "ovsx publish --no-dependencies",
 		"publish:vsce": "vsce publish --githubBranch main --no-dependencies",
 		"start": "npm run build -- --watch",
@@ -262,6 +261,11 @@
 				"language": "electron-builder-yaml",
 				"path": "./snippets/yaml/win.json"
 			}
+		]
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"lefthook"
 		]
 	},
 	"packageManager": "pnpm@10.18.1+sha512.77a884a165cbba2d8d1c19e3b4880eee6d2fcabd0d879121e282196b80042351d5eb3ca0935fa599da1dc51265cc68816ad2bddd2a2de5ea9fdf92adbec7cd34"
