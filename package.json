@@ -107,12 +107,6 @@
 					"default": [],
 					"markdownDescription": "%electronBuilderArguments%",
 					"order": 2
-				},
-				"electron-builder.disableTelemetry": {
-					"type": "boolean",
-					"default": false,
-					"description": "Disables extension telemetry, even though the global preferences might allow tracking",
-					"order": 3
 				}
 			}
 		},
