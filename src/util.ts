@@ -65,20 +65,21 @@ export async function getElectronBuilderPath(): Promise<string> {
 	return '';
 }
 
-export function getPlatformFlag(): string | void {
+export function getPlatformFlag(): string[] {
 	const currentPlatform = platform();
 
 	switch (currentPlatform) {
 		case 'linux':
-			return '--linux';
+			return ['--linux'];
 		case 'darwin':
-			return '--mac';
+			return ['--mac'];
 		case 'win32':
-			return '--windows';
+			return ['--windows'];
 		default:
 			window.showErrorMessage(
 				`Unsupported platform '${currentPlatform}' detected, please specify custom build arguments`,
 			);
+			return [];
 	}
 }
 
@@ -162,7 +163,7 @@ export async function hasEligibleManifest(): Promise<boolean> {
 }
 
 export async function hasConfigFiles(): Promise<boolean> {
-	const configFiles = await getConfigFiles();
+	const configFiles = getConfigFiles();
 	const projectPath = await getProjectPath();
 
 	if (!projectPath?.length) {
