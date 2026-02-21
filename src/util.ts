@@ -19,12 +19,8 @@ export async function asyncFilter(arr: string[], callback: (arg: string) => Prom
 
 // eslint-disable-next-line
 export async function clearOutput(channel: OutputChannel): Promise<void> {
-	const { alwaysShowOutput } = await getConfig('electron-builder');
-
 	channel.clear();
-	if (alwaysShowOutput === true) {
-		channel.show();
-	}
+	channel.show();
 }
 
 export async function fileExists(filePath: string): Promise<boolean> {

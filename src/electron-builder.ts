@@ -86,7 +86,7 @@ export default async function build(): Promise<void> {
 		builderChannel.show();
 
 		if (code !== 0) {
-			if (config.showNotifications) window.showErrorMessage('Building failed, see output for details');
+			window.showErrorMessage('Building failed, see output for details');
 			if (stdErr.length > 0) console.error(stdErr.join('\n'));
 		}
 	});
