@@ -180,6 +180,11 @@
 					"dark": "./resources/icon--build-dark.svg",
 					"light": "./resources/icon--build-light.svg"
 				}
+			},
+			{
+				"command": "extension.electron-builder.openSettings",
+				"title": "Electron Builder: Open Settings",
+				"icon": "$(settings)"
 			}
 		],
 		"menus": {
@@ -203,6 +208,26 @@
 					"when": "resourceLangId == electron-builder-yaml",
 					"command": "extension.electron-builder.build",
 					"group": "navigation@1"
+				},
+				{
+					"when": "resourceLangId == electron-builder-js",
+					"command": "extension.electron-builder.openSettings",
+					"group": "navigation@2"
+				},
+				{
+					"when": "resourceLangId == electron-builder-json",
+					"command": "extension.electron-builder.openSettings",
+					"group": "navigation@2"
+				},
+				{
+					"when": "resourceLangId == electron-builder-toml",
+					"command": "extension.electron-builder.openSettings",
+					"group": "navigation@2"
+				},
+				{
+					"when": "resourceLangId == electron-builder-yaml",
+					"command": "extension.electron-builder.openSettings",
+					"group": "navigation@2"
 				}
 			]
 		},
