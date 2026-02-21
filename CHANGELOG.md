@@ -1,3 +1,9 @@
+# v0.10.0 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/v0.10.0)
+
+- use native icons
+- add *Open Settings* command
+- update dependencies
+
 # v0.9.7 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/v0.9.7)
 
 - improve error handling when creating build tasks
