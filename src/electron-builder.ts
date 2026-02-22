@@ -2,6 +2,7 @@ import { spawn } from 'node:child_process';
 import { type WorkspaceConfiguration, window } from 'vscode';
 import { getConfig } from 'vscode-get-config';
 
+import { builderChannel } from './channel';
 import {
 	clearOutput,
 	getElectronBuilderPath,
@@ -13,8 +14,6 @@ import {
 	isSupportedGrammar,
 	isValidConfigFile,
 } from './util';
-
-const builderChannel = window.createOutputChannel('Electron Builder');
 
 export default async function build(): Promise<void> {
 	const activeTextEditor = window.activeTextEditor;
