@@ -29,7 +29,9 @@ export default async function build(): Promise<void> {
 		return;
 	}
 
-	if (!((await hasEligibleManifest()) || (await hasConfigFiles()))) {
+	const hasConfig = (await hasEligibleManifest()) || (await hasConfigFiles());
+
+	if (!hasConfig) {
 		builderChannel.appendLine('No eligible Electron Builder configuration found in your workspace');
 		return;
 	}
@@ -51,10 +53,7 @@ export default async function build(): Promise<void> {
 		? [...config.electronBuilderArguments]
 		: [getPlatformFlag()];
 
-	if (
-		!hasConfigArgument(electronBuilderArguments) &&
-		(isValidConfigFile(fileName) || !((await hasEligibleManifest()) || (await hasConfigFiles())))
-	) {
+	if (!hasConfigArgument(electronBuilderArguments) && (isValidConfigFile(fileName) || !hasConfig)) {
 		electronBuilderArguments.push('--config', fileName);
 	}
 
