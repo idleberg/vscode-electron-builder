@@ -17,7 +17,6 @@ export async function asyncFilter(arr: string[], callback: (arg: string) => Prom
 	return (await Promise.all(arr.map(async (item) => ((await callback(item)) ? item : fail)))).filter((i) => i !== fail);
 }
 
-// eslint-disable-next-line
 export async function clearOutput(channel: OutputChannel): Promise<void> {
 	channel.clear();
 	channel.show();
@@ -26,7 +25,6 @@ export async function clearOutput(channel: OutputChannel): Promise<void> {
 export async function fileExists(filePath: string): Promise<boolean> {
 	try {
 		await fs.access(filePath, constants.F_OK);
-		/* eslint-disable @typescript-eslint/no-unused-vars */
 	} catch {
 		return false;
 	}
