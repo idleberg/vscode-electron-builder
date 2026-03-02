@@ -60,7 +60,7 @@
 		"@commitlint/config-conventional": "^20.4.2",
 		"@idleberg/configs": "^0.4.2",
 		"@types/node": "^24.10.13",
-		"@types/vscode": "1.85.0",
+		"@types/vscode": "1.98.0",
 		"@types/which": "^3.0.4",
 		"concurrently": "^9.2.1",
 		"lefthook": "^2.1.1",
@@ -75,7 +75,7 @@
 		"theme": "dark"
 	},
 	"engines": {
-		"vscode": "^1.85.0"
+		"vscode": "^1.98.0"
 	},
 	"categories": [
 		"Snippets",
