@@ -56,16 +56,15 @@
 		"which": "^6.0.1"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^20.4.2",
-		"@commitlint/config-conventional": "^20.4.2",
+		"@commitlint/cli": "^20.4.3",
+		"@commitlint/config-conventional": "^20.4.3",
 		"@idleberg/configs": "^0.4.2",
 		"@types/node": "^24.10.13",
 		"@types/vscode": "1.98.0",
 		"@types/which": "^3.0.4",
 		"concurrently": "^9.2.1",
-		"lefthook": "^2.1.1",
 		"sharp-cli": "^5.2.0",
-		"tsdown": "^0.20.3",
+		"tsdown": "^0.21.0",
 		"typescript": "^5.9.3"
 	},
 	"extensionDependencies": [],
