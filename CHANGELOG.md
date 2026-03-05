@@ -1,4 +1,4 @@
-# v0.11.0 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/v0.10.0)
+# v0.11.0 [#](https://github.com/idleberg/vscode-electron-builder/releases/tag/v0.11.0)
 
 - require `vscode>=1.98.0`
 - update dependencies
