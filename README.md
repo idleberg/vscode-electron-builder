@@ -1,8 +1,7 @@
 # Electron Builder for Visual Studio Code
 
+[![License](https://img.shields.io/github/license/idleberg/vscode-applescript?color=blue&style=for-the-badge)](LICENSE)
 [![Version](https://img.shields.io/github/v/release/idleberg/vscode-electron-builder?style=for-the-badge)](https://github.com/idleberg/vscode-electron-builder/releases)
-[![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/idleberg.electron-builder?style=for-the-badge&label=Marketplace)](https://marketplace.visualstudio.com/items?itemName=idleberg.electron-builder)
-[![Open VSX Downloads](https://img.shields.io/open-vsx/dt/idleberg/electron-builder?style=for-the-badge&label=Open%20VSX)](https://open-vsx.org/extension/idleberg/electron-builder)
 [![Build](https://img.shields.io/github/actions/workflow/status/idleberg/vscode-electron-builder/default.yml?style=for-the-badge)](https://github.com/idleberg/vscode-electron-builder/actions)
 
 Build system for [Electron Builder](https://www.electron.build/).
@@ -91,4 +90,4 @@ Custom arguments for electron builder
 
 ## License
 
-This work is licensed under [The MIT License](https://opensource.org/licenses/MIT)
+This work is licensed under [The MIT License](LICENSE)
